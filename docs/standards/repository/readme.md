@@ -20,4 +20,4 @@ README as the name implies is the first document that anyone would be asked to r
 - It should contains setup instruction, most importantly development setup for other developer
 - Optionally contains screenshots or architectural diagram
 
-Please see the [template here](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/downloads/README.template.md).
+Please see the [template here](https://raw.githubusercontent.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/main/downloads/README.template.md).
