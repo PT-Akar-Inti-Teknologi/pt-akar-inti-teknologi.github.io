@@ -89,40 +89,20 @@ Jenkins and Sonarqube each requires `Jenkinsfile` and `sonar-project.properties`
             <td><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_laravel">example_jenkins_laravel</a><br/><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_laravel2">example_jenkins_laravel2</a><br/><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_laravel3">example_jenkins_laravel3</a></td>
         </tr>
         <tr>
-            <td>Kotlin</td>
-            <td>Kotlin</td>
+            <td rowspan=2>Kotlin</td>
+            <td rowspan=2>✅ <strong>Kotlin</strong></td>
+            <td><code>gradle</code></td>
+            <td><code>junit</code></td>
+            <td><code>jacoco</code></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_android_kotlin_gradle">example_jenkins_android_kotlin_gradle</a></td>
         </tr>
         <tr>
-            <td>Swift</td>
-            <td>Swift</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Dart</td>
-            <td>Flutter</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Python</td>
-            <td>Django</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><code>gradle</code></td>
+            <td><code>junit</code></td>
+            <td><code>jacoco</code></td>
+            <td><code>ktlint</code></td>
+            <td><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_android_kotlin_gradle2">example_jenkins_android_kotlin_gradle2</a></td>
         </tr>
     </tbody>
 </table>
