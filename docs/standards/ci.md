@@ -61,7 +61,7 @@ Jenkins and Sonarqube each requires `Jenkinsfile` and `sonar-project.properties`
             <td><code>jasmine</code> & <code>karma</code></td>
             <td><code>lcov</code></td>
             <td><code>eslint</code></td>
-            <td><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_angular2">example_jenkins_angular2</a></td>
+            <td><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_angular2">example_jenkins_angular2</a><br/><a href="https://github.com/PT-Akar-Inti-Teknologi/example_jenkins_angular3">example_jenkins_angular3</a></td>
         </tr>
         <tr>
             <td rowspan=2>Java</td>
