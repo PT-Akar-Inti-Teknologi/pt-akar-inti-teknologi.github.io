@@ -7,7 +7,7 @@ grand_parent: Standards
 nav_order: 1
 ---
 
-# Branch Name
+# API Convention
 
 ## Why
 
