@@ -68,5 +68,8 @@ There will be some cases that we need to do some action to a resource that can�
 - Sometimes you really have no way to map the action to a sensible RESTful structure. For example, to search across multiple resources doesn't really make sense to be applied to a specific resource's endpoint. In this case, /search would make the most sense even though it isn't a resource or a noun. This is OK - just do what's right from the perspective of the API consumer, and if there are some thing that can’t be semantically understood above all, make sure it's documented clearly to avoid confusion. 
 
 ```
-There are core principles that could rule out everything: “An API is a developer's UI, it's important to ensure the user's experience is thought out carefully.” – so, use these (or general web) standards where they make sense for consumer’s usages. Try to make everything understandable on consumer’s first guess by following common standards, if that’s impossible and unavoidable, make sure they understand by writing it in the API documentations.  
+There are core principles that could rule out everything: 
+"An API is a developer's UI, it's important to ensure the user's experience is thought out carefully." – 
+so, use these (or general web) standards where they make sense for consumer’s usages. 
+Try to make everything understandable on consumer’s first guess by following common standards, if that’s impossible and unavoidable, make sure they understand by writing it in the API documentations.  
 ```
