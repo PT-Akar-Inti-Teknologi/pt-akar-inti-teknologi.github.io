@@ -28,7 +28,6 @@ Naming conventions are important in a database and in application development in
 
 ### Columns convention:
 - Always use the singular name.
-- Where possible avoid simply using id as the primary identifier for the table.
 - Do not add a column with the same name as its table and vice versa.
 - Always use lowercase except where it may make sense not to such as proper nouns.
 
