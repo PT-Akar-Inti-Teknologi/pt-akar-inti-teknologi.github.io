@@ -19,9 +19,8 @@ One of the tools we will use to make the API documentation is Postman. Therefore
   - Example: CMS, Mobile, Web, etc
   
 ![image](https://drive.google.com/uc?export=view&id=12RIXYfbP-wZAr6XUO3Bi5P2j_IZEKf-n)
-{: .text-center }
 
-2. Inside the platform folder, create the folder based on screen/page/menu.
+1. Inside the platform folder, create the folder based on screen/page/menu.
   - Note: because it's paged, it's natural for endpoint duplication
 
 ![image](https://drive.google.com/uc?export=view&id=1evnMTc8MXDY3w5R-iiR9Xk3kG2wO52ei)
