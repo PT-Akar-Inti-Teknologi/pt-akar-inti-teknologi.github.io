@@ -37,8 +37,12 @@ One of the tools we will use to make the API documentation is Postman. Therefore
   - explanation of the DATE format used. Example: yyyy-mm-dd, or dd-mm-yyyy, etc
 
 ![image](https://drive.google.com/uc?export=view&id=1rkjSYJpVOkpLTQjtz9YCz0J89BiyMWLD)
+
 ![image](https://drive.google.com/uc?export=view&id=1PDbonH223Enfz5utNbnwRKq-38XJU5j1)
+
 ![image](https://drive.google.com/uc?export=view&id=13Q1yztlOBHoNUTndf4oyPE21k94NNCCx)
 
 
 5. in the root collection, it must have the changes log. This will make it easier for developers to understand what changes occur in each update.
+
+![image](https://drive.google.com/uc?export=view&id=14HHgoaAzbg4ERO3pg191-53bBa9P-zAC)
