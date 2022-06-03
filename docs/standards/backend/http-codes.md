@@ -15,7 +15,6 @@ HTTP Status codes help categorize the response. Sometimes they are self-explanat
 
 ## HTTP Code for Data Errors
 - 400 for when the requested information is incomplete or malformed.
-- 422 for when the requested information is okay, but invalid.
 - 404 for when everything is okay, but the resource doesn’t exist.
 - 409 for when a conflict of data exists, even with valid information.
 

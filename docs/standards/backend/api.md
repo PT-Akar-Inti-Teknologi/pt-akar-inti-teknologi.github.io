@@ -30,8 +30,6 @@ In order to provide consistent developer experience across many APIs and over a 
   - http://api.example.com/user-management/users/{id} 
 - Use query parameters (in bold) to apply filters on resources. For query names containing more than one word, use underscores ( _ ) as delimiter. Example:
   - http://api.example.com/device-managements/managed-devices?**region_area=USA&brand=XYZ&sort=installation-date**
-- Some proxies support only POST and GET methods. To support a RESTful API with these limitations, the API needs a way to override the HTTP method. 
-  - Note: Use the custom HTTP Header X-HTTP-Method-Override to override the POST Method.
 
 ## Endpoint Naming Principles
 
@@ -47,7 +45,6 @@ For common CRUD API actions, follow the usual. Example: a ‘ticket’ resource 
 - GET /tickets/12 - Retrieves a specific ticket with id of 12 
 - POST /tickets - Creates a new ticket
 - PUT /tickets/12 - Updates ticket #12
-- PATCH /tickets/12 - Partially updates ticket #12
 - DELETE /tickets/12 - Deletes ticket #12 
 
 ### 2. Resources relations

@@ -17,19 +17,24 @@ Naming conventions are important in a database and in application development in
 ### Common Conventions
 - Table name should have plural name.
 - Both tables and columns should use lower case :), with underscores. These are very readable and cross platform.
-- Each table in the database must have a timestamp column for created_at and/or updated_at, deleted_at
+- Each table in the database must have a timestamp column for created_at and/or updated_at, deleted_at for soft delete
+  - for date type, it is recommended to use zoned date time (timestamp with timezone)
+- Each table in the database it is recommended to add created_by, updated_by, and/or deleted_by
 - Foreign key should have table name as prefix
 
 ### Tables convention:
-- Use a collective name or, less ideally, a plural form. For example (in order of preference) staff and employees.
+- Use a collective name. For example staff and employees.
 - Do not prefix with tbl or any other such descriptive prefix or Hungarian notation.
 - Never give a table the same name as one of its columns and vice versa. 
-- Avoid, where possible, concatenating two table names together to create the name of a relationship table. Rather than cars_mechanics prefer services.
+- It is recommended to avoid, where possible, concatenating two table names together to create the name of a relationship table. Rather than cars_mechanics prefer services.
 
 ### Columns convention:
 - Always use the singular name.
 - Do not add a column with the same name as its table and vice versa.
 - Always use lowercase except where it may make sense not to such as proper nouns.
+- For boolean column type, use 'is_' prefix. Example: is_active, is_used.
+- Avoid boolean/number for multiple status column. Example: order status, rather than 1 (pending), 2 (paid), 3 (complete), use ENUM 'pending', 'paid', or 'complete'.
+
 
 ## Database Flow Tips
 - EXPLAIN Your SELECT Queries.
@@ -61,7 +66,7 @@ The more data is read from the tables, the slower the query will become. It incr
 In such cases, adding LIMIT 1 to your query can increase performance. This way the database engine will stop scanning for records after it finds just 1, instead of going thru the whole table or index
 {: .fs-2 }
 
-- Split the Big DELETE or INSERT Queries 
+- Recommend to split the Big DELETE or INSERT Queries 
 
 If you end up locking your tables for any extended period of time (like 30 seconds or more), on a high traffic web site, you will cause a process and query pileup, which might take a long time to clear or even crash your web server. 
 {: .fs-2 }
