@@ -60,13 +60,5 @@ If a resource is related to another resource, and the relation can only exist wi
 
 ### 3. Actions not fitting in CRUD scope
 There will be some cases that we need to do some action to a resource that can’t really be semantically mapped to HTTP methods. Such as: hide/unhide a comment resource, clear server’s cached data, or resending a registration email for a user. There are a number of approaches:
-- Restructure the action to appear like a field of a resource. This works if the action doesn't take parameters. For example an activated action could be mapped to a boolean activated field and updated via a PATCH to the resource.
 - Treat it like a sub-resource with RESTful principles. For example, GitHub's API lets you star a gist with PUT /gists/:id/star and unstar with DELETE /gists/:id/star.
 - Sometimes you really have no way to map the action to a sensible RESTful structure. For example, to search across multiple resources doesn't really make sense to be applied to a specific resource's endpoint. In this case, /search would make the most sense even though it isn't a resource or a noun. This is OK - just do what's right from the perspective of the API consumer, and if there are some thing that can’t be semantically understood above all, make sure it's documented clearly to avoid confusion. 
-
-```
-There are core principles that could rule out everything: 
-"An API is a developer's UI, it's important to ensure the user's experience is thought out carefully." – 
-so, use these (or general web) standards where they make sense for consumer’s usages. 
-Try to make everything understandable on consumer’s first guess by following common standards, if that’s impossible and unavoidable, make sure they understand by writing it in the API documentations.  
-```
