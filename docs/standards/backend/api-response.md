@@ -47,8 +47,10 @@ Example
 		"response_message": "Sukses"
 	},
 	"response_output": {
-		"data_A": "aaaa",
-		"data_B": "bbbb"
+		"detail": {
+			"data_A": "aaaa",
+			"data_B": "bbbb"
+		}
 	}
 }
 ```
@@ -61,16 +63,16 @@ Example
 		"response_message": "Sukses"
 	},
 	"response_output": {
-		"pagination": null,
-		"content": [{
+		"list": {
+			"pagination": null,
+			"content": [{
 				"data_A": "aaaa",
 				"data_B": "bbbb"
-			},
-			{
+			}, {
 				"data_A": "aaaa",
 				"data_B": "bbbb"
-			}
-		]
+			}]
+		}
 	}
 }
 ```
@@ -83,20 +85,20 @@ Example
 		"response_message": "Sukses"
 	},
 	"response_output": {
-		"pagination": {
-			"page": 0,
-			"total": 100,
-			"size": 10
-		},
-		"content": [{
-				"data_A": "aaaa",
-				"data_B": "bbbb"
+		"list": {
+			"pagination": {
+				"page": 0,
+				"total": 100,
+				"size": 10
 			},
-			{
+			"content": [{
 				"data_A": "aaaa",
 				"data_B": "bbbb"
-			}
-		]
+			}, {
+				"data_A": "aaaa",
+				"data_B": "bbbb"
+			}]
+		}
 	}
 }
 ```
@@ -110,8 +112,13 @@ Example
 		"response_message": "Parameter tidak valid"
 	},
 	"response_output": {
-		"email": "email format not valid",
-		"price": "must numeric"
+		"errors": [{
+			"field": "email",
+			"message": "email format not valid",
+		}, {
+			"field": "price",
+			"message": "must be numeric",
+		}]
 	}
 }
 ```
