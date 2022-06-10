@@ -110,8 +110,8 @@ Example
 		"response_message": "Parameter tidak valid"
 	},
 	"response_output": {
-		"parameter_1": "email format not valid",
-		"parameter_2": "must numeric"
+		"email": "email format not valid",
+		"price": "must numeric"
 	}
 }
 ```
@@ -120,7 +120,7 @@ Example
 ```
 {
 	"response_schema": {
-		"response_code": "PTPR-LOGIN-404",
+		"response_code": "PTPR-LOGIN-500",
 		"response_message": "internal server error"
 	},
 	"response_output": null
@@ -131,7 +131,7 @@ Example
 ```
 {
 	"response_schema": {
-		"response_code": "PTPR-LOGIN-400",
+		"response_code": "PTPR-LOGIN-404",
 		"response_message": "User tidak di temukan"
 	},
 	"response_output": null
