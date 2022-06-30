@@ -26,7 +26,7 @@ Naming conventions are important in a database and in application development in
 - Use a collective name. For example staff and employees.
 - Do not prefix with tbl or any other such descriptive prefix or Hungarian notation.
 - Never give a table the same name as one of its columns and vice versa. 
-- It is recommended to avoid, where possible, concatenating two table names together to create the name of a relationship table. Rather than cars_mechanics prefer services.
+
 
 ### Columns convention:
 - Always use the singular name.
@@ -61,10 +61,6 @@ The more data is read from the tables, the slower the query will become. It incr
 - Choose proper Database Engine: 
   - If you develop an application that reads data more often than writing (ex: search engine), choose MyISAM storage engine. 
   - If you develop an application that writes data more often than reading (ex: real-time bank transactions), choose INNODB storage engine. 
-- LIMIT 1 When Getting a Unique Row. 
-
-In such cases, adding LIMIT 1 to your query can increase performance. This way the database engine will stop scanning for records after it finds just 1, instead of going thru the whole table or index
-{: .fs-2 }
 
 - Recommend to split the Big DELETE or INSERT Queries 
 
