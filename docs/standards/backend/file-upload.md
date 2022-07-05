@@ -23,8 +23,8 @@ nav_order: 5
 
 1. Provide separate table to save file data. For Example "file" table
    
-<table>
-    <tbody>
+  <table>
+    <thead>
         <tr>
             <td>id</td>
         </tr>
@@ -53,7 +53,7 @@ nav_order: 5
             <td>modified_at</td>
         </tr>
     </tbody>
-</table>
+  </table>
 
 2. Backend need to provide API service, specific to upload the file.
   - May needs to provide destination folder.
