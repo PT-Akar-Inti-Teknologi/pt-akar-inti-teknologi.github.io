@@ -23,35 +23,37 @@ nav_order: 5
 
 1. Provide separate table to save file data. For Example "file" table
    
-  <table>
-    <tr>
-        <td>id</td>
-    <tr>
-    <tr>
-        <td>name</td>
-    <tr>
-    <tr>
-        <td>mime_type</td>
-    <tr>
-    <tr>
-        <td>file_path</td>
-    <tr>
-    <tr>
-        <td>is_uploaded</td>
-    <tr>
-    <tr>
-        <td>is_resized (optional)</td>
-    <tr>
-    <tr>
-        <td>resized_size (optional)</td>
-    <tr>
-    <tr>
-        <td>created_at</td>
-    <tr>
-    <tr>
-        <td>modified_at</td>
-    <tr>
-  </table>
+<table>
+    <tbody>
+        <tr>
+            <td>id</td>
+        </tr>
+        <tr>
+            <td>name</td>
+        </tr>
+        <tr>
+            <td>mime_type</td>
+        </tr>
+        <tr>
+            <td>file_path</td>
+        </tr>
+        <tr>
+            <td>is_uploaded</td>
+        </tr>
+        <tr>
+            <td>is_resized (optional)</td>
+        </tr>
+        <tr>
+            <td>resized_size (optional)</td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+        </tr>
+        <tr>
+            <td>modified_at</td>
+        </tr>
+    </tbody>
+</table>
 
 2. Backend need to provide API service, specific to upload the file.
   - May needs to provide destination folder.
