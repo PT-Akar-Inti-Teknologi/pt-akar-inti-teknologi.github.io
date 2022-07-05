@@ -25,33 +25,33 @@ nav_order: 5
    
   <table>
     <thead>
-        <tr>
-            <td>id</td>
-        </tr>
-        <tr>
-            <td>name</td>
-        </tr>
-        <tr>
-            <td>mime_type</td>
-        </tr>
-        <tr>
-            <td>file_path</td>
-        </tr>
-        <tr>
-            <td>is_uploaded</td>
-        </tr>
-        <tr>
-            <td>is_resized (optional)</td>
-        </tr>
-        <tr>
-            <td>resized_size (optional)</td>
-        </tr>
-        <tr>
-            <td>created_at</td>
-        </tr>
-        <tr>
-            <td>modified_at</td>
-        </tr>
+      <tr>
+        <td>id</td>
+      </tr>
+      <tr>
+        <td>name</td>
+      </tr>
+      <tr>
+        <td>mime_type</td>
+      </tr>
+      <tr>
+        <td>file_path</td>
+      </tr>
+      <tr>
+        <td>is_uploaded</td>
+      </tr>
+      <tr>
+        <td>is_resized (optional)</td>
+      </tr>
+      <tr>
+        <td>resized_size (optional)</td>
+      </tr>
+      <tr>
+        <td>created_at</td>
+      </tr>
+      <tr>
+        <td>modified_at</td>
+      </tr>
     </tbody>
   </table>
 
