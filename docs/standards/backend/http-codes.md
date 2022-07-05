@@ -20,7 +20,7 @@ HTTP Status codes help categorize the response. Sometimes they are self-explanat
 
 ## HTTP Code for Auth Errors
 
-- 401 for when an access token isn’t provided, or is invalid.
+- 401 for when an access token isn't provided, or is invalid.
 - 403 for when an access token is valid, but requires more privileges.
 
 ## HTTP Code for Standard Statuses

@@ -11,12 +11,12 @@ nav_order: 4
 
 ## Why
 
-Naming conventions are important in a database and in application development in general. Having clear, concise names for tables, procedures, etc., is important for many reasons. It makes searching for the relevant table easier. It is more intuitive for someone learning the system.
+Naming conventions are important in a database and in application development in general. Having clear, concise names for tables, procedures, etc., is important for many reasons. It makes searching for the relevant table easier. It is more intuitive for someone learns the system.
 
 ## Database Convetion
 ### Common Conventions
 - Table name should have plural name.
-- Both tables and columns should use lower case :), with underscores. These are very readable and cross platform.
+- Both tables and columns should use lower case, with underscores. These are very readable and cross platform.
 - Each table in the database must have a timestamp column for created_at and/or updated_at, deleted_at for soft delete
   - for date type, it is recommended to use zoned date time (timestamp with timezone)
 - Each table in the database it is recommended to add created_by, updated_by, and/or deleted_by
