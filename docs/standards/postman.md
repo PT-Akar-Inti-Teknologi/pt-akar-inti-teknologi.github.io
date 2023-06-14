@@ -18,30 +18,30 @@ One of the tools we will use to make the API documentation is Postman. Therefore
   - This will make it easier for developers to focus on the platform they are working on
   - Example: CMS, Mobile, Web, etc
   
-![image](https://drive.google.com/uc?export=view&id=12RIXYfbP-wZAr6XUO3Bi5P2j_IZEKf-n)
+![image](https://raw.githubusercontent.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/main/Postman/POINT%201.png)
 
 - Inside the platform folder, create the folder based on screen/page/menu.
   - Note: because it's paged, it's natural for endpoint duplication
 
-![image](https://drive.google.com/uc?export=view&id=1evnMTc8MXDY3w5R-iiR9Xk3kG2wO52ei)
+![image](https://raw.githubusercontent.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/main/Postman/POINT%202.png)
 
 
 - Every API *MUST* have a positive case example and negative case example (Optional)
 
-![image](https://drive.google.com/uc?export=view&id=1kZR5P8H8Uw5i9QZ1TNNBymyHQQIva0EY)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Postman/POINT%203.png?raw=true)
 
 - Each API must have an explanation in the postman documentation:
   - explanation of what this service is for
   - ENUM mapping explanation (if any). Example: for gender, M (Male) and F (Female), etc
   - explanation of the DATE format used. Example: yyyy-mm-dd, or dd-mm-yyyy, etc
 
-![image](https://drive.google.com/uc?export=view&id=1rkjSYJpVOkpLTQjtz9YCz0J89BiyMWLD)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Postman/POINT%204%20-%20CONTOH.png?raw=true)
 
-![image](https://drive.google.com/uc?export=view&id=1PDbonH223Enfz5utNbnwRKq-38XJU5j1)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Postman/POINT%204%20-%20A.png?raw=true)
 
-![image](https://drive.google.com/uc?export=view&id=13Q1yztlOBHoNUTndf4oyPE21k94NNCCx)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Postman/POINT%204%20-%20B.png?raw=true)
 
 
 - in the root collection, it must have the changes log. This will make it easier for developers to understand what changes occur in each update.
 
-![image](https://drive.google.com/uc?export=view&id=14HHgoaAzbg4ERO3pg191-53bBa9P-zAC)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Postman/POINT%205.png?raw=true)
