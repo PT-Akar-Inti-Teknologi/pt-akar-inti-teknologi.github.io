@@ -16,7 +16,7 @@ README as the name implies is the first document that anyone would be asked to r
 ## Convention
 
 - It should contains an overview or general information about the project
-- It should contains Sonarqube badge: Quality Gates, Bug Count, Code Smells, Coverage, Reability, Security, Maintaability
+- It should contains Sonarqube badge: Quality Gates, Bug Count, Code Smells, Coverage, Reability, Security, Maintainability
 - It should contains technology used
 - It should contains setup instruction, most importantly development setup for other developer
 - Optionally contains screenshots or architectural diagram
