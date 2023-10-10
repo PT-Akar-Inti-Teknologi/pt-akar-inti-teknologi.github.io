@@ -4,7 +4,7 @@ title: Bitrix Checklist
 permalink: /standards/bitrix/checklist
 parent: Bitrix
 grand_parent: Standards
-nav_order: 4
+nav_order: 2
 ---
 
 # Bitrix Checklist
