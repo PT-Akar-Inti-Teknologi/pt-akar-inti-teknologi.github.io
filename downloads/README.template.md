@@ -2,11 +2,15 @@
 
 Outline a brief description of the project. If there is a demo app please also put a link here.
 
+[Sonar Badge - Quality Gates] [Sonar Badge - Bug] [Sonar Badge - Code Smells] [Sonar Badge - Coverage] [Sonar Badge - Reability] [Sonar Badge - Security] [Sonar Badge - Maintainability]
+
 ## Table of Contents
-* [General Information](#general-information)
-* [Technologies Used](#technologies-used)
-* [Setup](#setup)
-* [Developers](#developers)
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [General Information](#general-information)
+  - [Technologies Used](#technologies-used)
+  - [Setup](#setup)
+  - [Developers](#developers)
 
 ## General Information
 - Provide general information about the project here.
