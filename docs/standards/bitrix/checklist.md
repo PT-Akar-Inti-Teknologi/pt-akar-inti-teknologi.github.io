@@ -1,12 +1,13 @@
 ---
-layout: page
-title: Bitrix
-permalink: /standards/bitrix/
-parent: Standards
-has_children: false
+layout: default
+title: Bitrix Checklist
+permalink: /standards/bitrix/checklist
+parent: Bitrix
+grand_parent: Standards
+nav_order: 4
 ---
 
-# Bitrix
+# Bitrix Checklist
 {: .no_toc }
 
 ## Why
@@ -14,11 +15,11 @@ Having a common bitrix standard is crucial as it simplifies the work for everyon
 
 ## How to Create a Checklist
 
-![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/1.jpg?raw=true)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/Checklist/1.jpg?raw=true)
 
-![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/2.png?raw=true)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/Checklist/2.png?raw=true)
 
-![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/3.png?raw=true)
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Bitrix/Checklist/3.png?raw=true)
 
 ## Checklist Requirements
 
@@ -50,7 +51,7 @@ And some optional items depending on conditions
 
 ## Example
 
-# Gathering Phase
+### Gathering Phase
 
 After technical breakdown
 
