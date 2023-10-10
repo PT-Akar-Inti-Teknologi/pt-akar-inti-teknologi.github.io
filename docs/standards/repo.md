@@ -3,6 +3,7 @@ layout: page
 title: Code Repository
 permalink: /standards/repository/
 parent: Standards
+nav_order: 3
 has_children: true
 ---
 
