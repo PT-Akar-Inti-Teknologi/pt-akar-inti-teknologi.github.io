@@ -11,7 +11,7 @@ nav_order: 5
 
 ## Why
 
-Hhaving a consistent GitHub pull request template is important to ensure that each pull request follows a standardized format, clarifies its purpose, facilitates code review, and enhances team collaboration efficiency.
+Having a consistent GitHub pull request template is important to ensure that each pull request follows a standardized format, clarifies its purpose, facilitates code review, and enhances team collaboration efficiency.
 
 ## Template Example
 
