@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Bitrix Task Breakdown
-permalink: /standards/bitrix/checklist
+permalink: /standards/bitrix/task-breakdown
 parent: Bitrix
 grand_parent: Standards
 nav_order: 1
