@@ -4,7 +4,7 @@ title: TSD - Technical Spesification Document
 permalink: /standards/others/emails
 parent: Others
 grand_parent: Standards
-nav_order: 2
+nav_order: 3
 ---
 
 # Technical Spesification Document
