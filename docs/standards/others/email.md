@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Email Standards
-permalink: /standards/bitrix/emails
+permalink: /standards/others/emails
 parent: Others
 grand_parent: Standards
-nav_order: 2
+nav_order: 1
 ---
 
 # Bitrix Checklist

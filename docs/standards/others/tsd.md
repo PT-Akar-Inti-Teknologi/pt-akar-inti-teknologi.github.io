@@ -1,9 +1,10 @@
 ---
 layout: page
 title: TSD - Technical Spesification Document
-permalink: /standards/tsd/
-parent: Standards
-has_children: false
+permalink: /standards/others/emails
+parent: Others
+grand_parent: Standards
+nav_order: 2
 ---
 
 # Technical Spesification Document
