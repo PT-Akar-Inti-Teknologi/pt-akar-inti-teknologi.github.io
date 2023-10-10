@@ -17,8 +17,8 @@ Hhaving a consistent GitHub pull request template is important to ensure that ea
 
 ### Frontend Pull Request
 
-> \> [#{{bitrix_task_id}}] - FE Web - {{comment/status}}  
-\> [#{{bitrix_task_id}}] - FE CMS - {{comment/status}}  
+> \> [#{{bitrix_task_id}}] - FE Web - \{{comment/status}}  
+\> [#{{bitrix_task_id}}] - FE CMS - \{{comment/status}}  
 \
 Changelog:  
 \- Slicing  
@@ -38,8 +38,8 @@ Before (optional)
 
 ### Backend Pull Request
 
-> \> [#{{bitrix_task_id}}] - BE - {{comment/status}}  
-\> [#{{bitrix_task_id}}] - BE - {{comment/status}}  
+> \> [#{{bitrix_task_id}}] - BE - \{{comment/status}}  
+\> [#{{bitrix_task_id}}] - BE - \{{comment/status}}  
 \
 Changelog:  
 \- Implement API A (soorfinc >mobile > API A)  
