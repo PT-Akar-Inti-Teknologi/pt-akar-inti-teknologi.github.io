@@ -31,3 +31,5 @@ Recommended to be included in the architectural design:
 ## Example
 
 ![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Architecture/2.jpg?raw=true)
+
+![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Architecture/1.jpg?raw=true)
