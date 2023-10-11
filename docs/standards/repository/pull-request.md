@@ -16,36 +16,42 @@ Having a consistent GitHub pull request template is important to ensure that eac
 ## Template Example
 
 ### Frontend Pull Request
+```
+> [#{bitrix_task_id}] - FE Web - {comment/status}  
+> [#{bitrix_task_id}] - FE CMS - {comment/status}  
 
-> \> [#\{bitrix_task_id\}] - FE Web - \{comment/status\}  
-\> [#\{bitrix_task_id\}] - FE CMS - \{comment/status\}  
-\
 Changelog:  
-\- Slicing  
-\
-Bitrix Link:  
-\
-Checklist Task:  
-\
-Figma Link:  
-\
-Figma  
-\<image>  
-Screenshot UI  
-\<image>  
-Before (optional)  
-\<image>  
+- <Point 1>
+- <Point 2>
 
+Bitrix Link: <link>  
+
+Checklist Task: (optional)
+- <checklist 1>
+- <checklist 2>
+
+Figma Link: <link>  
+
+Screenshot Figma:  
+<image>  
+Screenshot UI:   
+<image>  
+Before: (optional)  
+<image>  
+```
 ### Backend Pull Request
+```
+> [#{bitrix_task_id}] - BE - {comment/status}  
+> [#{bitrix_task_id}] - BE - {comment/status}   
 
-> \> [#\{bitrix_task_id\}] - BE - \{comment/status\}  
-\> [#\{bitrix_task_id\}] - BE - \{comment/status\}   
-\
 Changelog:  
-\- Implement API A (soorfinc >mobile > API A)  
-\- Implement API B (soorfinc >mobile > API B)  
+- Implement API A (soorfinc > mobile > API A)  
+- Implement API B (soorfinc > mobile > API B)  
 etc  
-\
-Bitrix Link:  
-\
+
+Bitrix Link: <link>  
+
 Checklist Task:  
+- <checklist 1>
+- <checklist 2>
+```
