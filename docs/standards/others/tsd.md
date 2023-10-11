@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: TSD - Technical Spesification Document
 permalink: /standards/others/tsd
 parent: Others
