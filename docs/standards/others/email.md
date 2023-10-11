@@ -38,10 +38,12 @@ Next Action: (termasuk deadline, jika ada)​
 Terlampir: (jika ada dokumen, termasuk screenshot)​
 1. ...
 ```
+___
 
 ## Escalation MoM Email Template
 ### Description
 An Escalation Email is required in case of issues or blockers that cause delays in project delivery, especially if these issues persist without a solution. This email needs to be directed to the supervisor as a written record to facilitate understanding of the issues and to collaboratively work towards their resolution.
+
 ### Subject
 
 ```
