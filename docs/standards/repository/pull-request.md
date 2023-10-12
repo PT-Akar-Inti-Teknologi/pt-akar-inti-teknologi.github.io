@@ -24,8 +24,6 @@ Changelog:
 - <Point 1>
 - <Point 2>
 
-Bitrix Link: <link>  
-
 Checklist Task: (optional)
 - <checklist 1>
 - <checklist 2>
@@ -48,7 +46,6 @@ Changelog:
 - <Point 1>
 - <Point 2> 
 
-Bitrix Link: <link>  
 
 Checklist Task: (optional)
 - <checklist 1>
