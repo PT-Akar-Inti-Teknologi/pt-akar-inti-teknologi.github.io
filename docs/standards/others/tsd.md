@@ -4,7 +4,7 @@ title: TSD - Technical Spesification Document
 permalink: /standards/others/tsd
 parent: Others
 grand_parent: Standards
-nav_order: 3
+nav_order: 4
 ---
 
 # Technical Spesification Document
