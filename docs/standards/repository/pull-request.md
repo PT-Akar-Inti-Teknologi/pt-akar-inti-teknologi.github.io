@@ -34,7 +34,7 @@ Figma Link: <link>
 
 Screenshot Figma:  
 <image>  
-Screenshot UI:   
+Screenshot UI: (optional)  
 <image>  
 Before: (optional)  
 <image>  
