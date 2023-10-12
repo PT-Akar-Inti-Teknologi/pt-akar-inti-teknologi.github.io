@@ -45,13 +45,12 @@ Before: (optional)
 > [#{bitrix_task_id}] - BE - {comment/status}   
 
 Changelog:  
-- Implement API A (soorfinc > mobile > API A)  
-- Implement API B (soorfinc > mobile > API B)  
-etc  
+- <Point 1>
+- <Point 2> 
 
 Bitrix Link: <link>  
 
-Checklist Task:  
+Checklist Task: (optional)
 - <checklist 1>
 - <checklist 2>
 ```
