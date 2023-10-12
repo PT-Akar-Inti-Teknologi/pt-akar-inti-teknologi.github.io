@@ -17,11 +17,11 @@ nav_order: 1
 - (Optional, only for complex features) Detailed flow in the form of an activity diagram and its explanation.
 - (Optional, only for complex features) Screen flow
 
-## Used Tools
+## Recommendation Tools
 
-- PlantUML: https://plantuml.com/
+- (PlantUML)[https://plantuml.com/]
   
-  - save generated uml in one of the git repositories.
+  - its recommend to save code/generated uml in one of the git repositories.
 
 
 

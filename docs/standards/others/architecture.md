@@ -12,7 +12,8 @@ nav_order: 1
 
 ## Tools
 
-Recommendation tool: Draw.io https://app.diagrams.net/
+Recommendation tool: 
+- [Draw.io](https://app.diagrams.net/)
 
 ## What needs to be in the architectural design?
 

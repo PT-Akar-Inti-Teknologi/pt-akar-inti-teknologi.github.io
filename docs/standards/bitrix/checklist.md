@@ -61,9 +61,11 @@ After Estimating Mandays
 
 [BE] Implement API Feature A [5MD]
 
+```
 ### Development Phase
+```
 
-When assigned to a developer
+### When assigned to a developer
 
 [BE] Implement API Feature A [5MD] Sukirman [Start: 10-08-2023, est: 15-08-2023]
 
@@ -71,7 +73,7 @@ When assigned to a developer
 
 ~~[BE] Implement API Feature A [5MD] Sukirman [Start: 10-08-2023, est: 15-08-2023] [done at: 13-08-2023]~~
 
-Checklist completed
+**Checklist completed**
 
 ### When a blocker occurs
 
