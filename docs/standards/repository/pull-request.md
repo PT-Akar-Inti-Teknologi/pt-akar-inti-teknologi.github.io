@@ -13,12 +13,29 @@ nav_order: 5
 
 Having a consistent GitHub pull request template is important to ensure that each pull request follows a standardized format, clarifies its purpose, facilitates code review, and enhances team collaboration efficiency.
 
+## Description
+
+If using bitrix as task management, every pull request must begin with `> [#{bitrix_task_id}] - {platform} - {comment/status}` in the description
+
+- bitrix_task_id: Bitrix Task ID, found in bitrix URL
+- platform must follow these options:
+
+platform | 
+---|
+BE |
+FE Web |
+FE CMS |
+Mobile Android |
+Mobile IOS |
+
+- comment/status: short description of status of the task.
+
 ## Template Example
 
 ### Frontend Pull Request
 ```
-> [#{bitrix_task_id}] - FE Web - {comment/status}  
-> [#{bitrix_task_id}] - FE CMS - {comment/status}  
+> [#{bitrix_task_id}] - {platform} - {comment/status}  
+> [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request 
 
 Changelog:  
 - <Point 1>
@@ -57,8 +74,8 @@ Figma Link: [figma](https://www.figma.com/file/1234567/app?type=design&node-id=2
 
 ### Backend Pull Request
 ```
-> [#{bitrix_task_id}] - BE - {comment/status}  
-> [#{bitrix_task_id}] - BE - {comment/status}   
+> [#{bitrix_task_id}] - {platform} - {comment/status}  
+> [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request
 
 Changelog:  
 - <Point 1>
