@@ -17,8 +17,8 @@ Having a consistent GitHub pull request template is important to ensure that eac
 
 If using bitrix as task management, every pull request must begin with `> [#{bitrix_task_id}] - {platform} - {comment/status}` in the description
 
-- bitrix_task_id: Bitrix Task ID, found in bitrix URL
-- platform must follow these options:
+- bitrix_task_id: Bitrix Task ID, found in bitrix URL.
+- platform: must follow these options:
 
 platform | 
 ---|
