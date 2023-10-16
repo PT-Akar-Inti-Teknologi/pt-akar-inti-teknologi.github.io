@@ -19,7 +19,7 @@ nav_order: 1
 
 ## Recommendation Tools
 
-- (PlantUML)[https://plantuml.com/]
+- [PlantUML](https://plantuml.com/)
   
   - its recommend to save code/generated uml in one of the git repositories.
 
