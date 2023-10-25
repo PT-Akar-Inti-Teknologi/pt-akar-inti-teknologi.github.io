@@ -57,8 +57,8 @@ Before: (optional)
 
 **Example**
 ```
-> [#{51741}] - FE Web - Done
-> [#{52801}] - FE Web - On Progress
+> [#51741] - FE Web - Done
+> [#52801] - FE Web - On Progress
 
 Changelog:  
 - #51741 implement mock api
@@ -89,7 +89,7 @@ Checklist Task: (optional)
 
 **Example**
 ```
-> [#{123456}] - BE - Done
+> [#123456] - BE - Done
 
 Changelog:  
 - CRUD master data promo API
