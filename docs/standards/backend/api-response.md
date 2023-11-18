@@ -15,14 +15,16 @@ We can use these general response code, depends on monolith or microservice.
 
 ### Monolith
 
-> {A}-{B}
+> {A}-{B}-{C}
 >> {A}: Project Code Name
 >
->> {B}: HTTP CODE / Sequence Code
+>> {B}: Module Name
+>
+>> {c}: HTTP CODE / Sequence Code
 
 Example:
-- PTPR-200 (HTTP Code)
-- PTPR-00001 (Sequence Code)
+- PTPR-LOGIN-200 (HTTP Code)
+- PTPR-LOGIN-00001 (Sequence Code)
 
 ### Microservice
 > {A}-{B}-{C}
