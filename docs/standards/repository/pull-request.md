@@ -37,6 +37,11 @@ Mobile IOS |
 > [#{bitrix_task_id}] - {platform} - {comment/status}  
 > [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request 
 
+Acceptance Criteria
+- [ ] Criteria A
+- [x] Criteria B
+- [x] Criteria C
+
 Changelog:  
 - <Point 1>
 - <Point 2>
@@ -60,6 +65,11 @@ Before: (optional)
 > [#51741] - FE Web - Done
 > [#52801] - FE Web - On Progress
 
+Acceptance Criteria
+- [ ] Email format must be valid
+- [x] Password and confirm password must be same
+- [x] Name can not contain number
+
 Changelog:  
 - #51741 implement mock api
 - #52801 Slicing and integration sidebar menu
@@ -77,6 +87,11 @@ Figma Link: [figma](https://www.figma.com/file/1234567/app?type=design&node-id=2
 > [#{bitrix_task_id}] - {platform} - {comment/status}  
 > [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request
 
+Acceptance Criteria
+- [ ] Criteria A
+- [x] Criteria B
+- [x] Criteria C
+
 Changelog:  
 - <Point 1>
 - <Point 2> 
@@ -90,6 +105,11 @@ Checklist Task: (optional)
 **Example**
 ```
 > [#123456] - BE - Done
+
+Acceptance Criteria
+- [x] Email must be unique
+- [x] Validation password length must more than 5 chars 
+- [x] Name can not contain number
 
 Changelog:  
 - CRUD master data promo API
