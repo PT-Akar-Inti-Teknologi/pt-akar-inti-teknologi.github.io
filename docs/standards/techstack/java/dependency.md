@@ -2,7 +2,7 @@
 layout: default
 title: Java Standards
 permalink: /standards/techstack/java/standard
-parent: Java Standards
+parent: Java
 grand_parent: Techstacks Guidelines
 ---
 
@@ -11,7 +11,7 @@ grand_parent: Techstacks Guidelines
 ## Main Requirement
 
 ### IDE
-we will be using IntelliJ IDEA as our IDE for work.
+we will be using **IntelliJ IDEA** as our IDE for work.
 
 #### standard plug-in
 - SonarLint [Link](https://plugins.jetbrains.com/plugin/7973-sonarlint)
@@ -24,16 +24,16 @@ we will be using IntelliJ IDEA as our IDE for work.
 
 we use Spring Boot as our main framework.
 
-We will be using Spring Boot version 3.
+We will be using **Spring Boot version 3**.
 
 ### Java Version
 
-As a standard, we will be using Java 17 to create new projects.
+As a standard, we will be using **Java 17** to create new projects.
 
 ### Note
 
-The version of Spring Boot and Java used will depend on the client's requirements.
-If there are **no specific** requirements from the client, we will use the standard mentioned above to create a new project.
+The version of **Spring Boot and Java used will depend on the client's requirements**.
+**If there are no specific** requirements from the client, we will use the standard mentioned above to create a new project.
 
 ## Dependencies
 ### Openfeign

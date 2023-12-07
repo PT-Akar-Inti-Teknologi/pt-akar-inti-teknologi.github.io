@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Java Standards
+title: Java
 permalink: /standards/techstack/java
 parent: Techstacks Guidelines
 grand_parent: Standards
