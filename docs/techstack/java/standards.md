@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Java Standards
-permalink: /standards/techstack/java/standard
+permalink: /techstack/java/standard
 parent: Java
 grand_parent: Techstacks Guidelines
 ---

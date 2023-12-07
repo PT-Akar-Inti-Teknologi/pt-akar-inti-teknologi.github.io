@@ -1,9 +1,8 @@
 ---
 layout: page
 title: Java
-permalink: /standards/techstack/java
+permalink: /techstack/java
 parent: Techstacks Guidelines
-grand_parent: Standards
 has_children: true
 ---
 
