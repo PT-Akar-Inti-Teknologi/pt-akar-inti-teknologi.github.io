@@ -66,6 +66,12 @@ Apache HttpClient is a Java library that can be extended to enable comprehensive
 
 [reference](https://github.com/zalando/logbook)
 
+### Test Containter
+
+TestContainer is a tool that helps us run integration tests on our code.
+
+[reference](https://testcontainers.com/guides/testing-spring-boot-rest-api-using-testcontainers/)
+
 ### Envers (Optional)
 
 Hibernate Envers is a project used for auditing or historical recording of entities (objects) in applications that use Hibernate as an Object-Relational Mapping (ORM) framework. With Hibernate Envers, you can automatically track data changes on entities, including who made the changes, when the changes occurred, and what the changes were.
