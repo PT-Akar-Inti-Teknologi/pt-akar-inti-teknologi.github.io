@@ -8,5 +8,4 @@ has_children: true
 
 # Standard of Java
 
-1. TOC
-   {:toc}
+{:toc}

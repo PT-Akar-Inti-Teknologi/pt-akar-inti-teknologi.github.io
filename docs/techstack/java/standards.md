@@ -22,7 +22,7 @@ we will be using **IntelliJ IDEA** as our IDE for work.
 
 ### Framework
 
-we use Spring Boot as our main framework.
+we use **Spring Boot** as our main framework & **Maven** sebagai compiler.
 
 We will be using **Spring Boot version 3**.
 
