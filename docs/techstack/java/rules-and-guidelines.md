@@ -6,18 +6,18 @@ parent: Java
 grand_parent: Techstacks Guidelines
 ---
 
-# Rules & Guidelines
+# **Rules & Guidelines**
 
 **If the client has a standard code, then follow that standard. But if not, then follow the rules below.**
 
-## Java Template Project
+## **Java Template Project**
 
 [Link](https://github.com/PT-Akar-Inti-Teknologi/ait-spring-boot-template)
 
-## Guidelines
-### Project Structure
+## **Guidelines**
+### **Project Structure**
 
-#### General Structure
+#### **General Structure**
 ```
 
 ├── src
@@ -93,9 +93,9 @@ grand_parent: Techstacks Guidelines
 
 ```
 
-#### Description of substructure
+#### **Description of substructure**
 
-##### SRC
+##### **SRC**
 
 ```
 ├── src
@@ -118,7 +118,7 @@ In general, the main project consists of 3 major packages, namely:
 - **modules**: This package contains the main business components of the project.
 - **shared**: This package contains classes that can be used throughout the project, such as constants, utility classes, DTOs, and etc.
 
-##### CONFIG
+##### **CONFIG**
 
 ```
 ├── config
@@ -149,10 +149,10 @@ In addition, there are several default packages that should exist in the project
 
 - **MessageConfig.java**: A built-in class used to handle translating messages that are located in resources/messages/core.
 
-###### Notes
+###### **Notes**
 **Not all values in the application.yml file are included in the class ApplicationProperties.java, only the values that are used.**
 
-##### Modules
+##### **Modules**
 
 ```
 ├── modules
@@ -200,7 +200,7 @@ The module package is a package that contains the main modules of a project that
     - command: This package contains classes that **process data** in the database.
 - transform: This package contains MapStruct mapper interfaces that are **only used** within the related module.
 
-###### Notes
+###### **Notes**
 
 1. **Each module is isolated from other modules**. To communicate or access data from a different module, use Adapters (whether it's a Query or Command) and call their interfaces.
 2. **To avoid Circular Dependencies**, the Query adapter and Command adapter **should not call each other**.
@@ -211,7 +211,7 @@ The module package is a package that contains the main modules of a project that
 5. If there are multiple database connections within a module, you can create a new package inside the model package based on the connected database.
 
    ![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/Java/multipledataresource.png?raw=true)
-##### Shared
+##### **Shared**
 
 ```
 ├── shared    
