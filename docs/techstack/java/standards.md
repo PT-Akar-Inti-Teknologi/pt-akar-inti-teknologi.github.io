@@ -11,7 +11,7 @@ grand_parent: Techstacks Guidelines
 ## Main Requirement
 
 ### IDE
-we will be using **IntelliJ IDEA** as our IDE for work.
+we will be using **IntelliJ IDEA** as our IDE for work. [link](https://www.jetbrains.com/idea/)
 
 #### standard plug-in
 - SonarLint [Link](https://plugins.jetbrains.com/plugin/7973-sonarlint)
@@ -22,7 +22,7 @@ we will be using **IntelliJ IDEA** as our IDE for work.
 
 ### Framework
 
-we use **Spring Boot** as our main framework & **Maven** sebagai compiler.
+we use **Spring Boot** as our main framework & **Maven** as our compiler.
 
 We will be using **Spring Boot version 3**.
 
