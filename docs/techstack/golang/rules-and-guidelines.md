@@ -35,6 +35,8 @@ The source code can be located at the link above.
 |   \---helpers
 |           utils.go
 |           
++---resources
+|       migrations.go
 \---internals
     +---yourmodule
     |   |   handler.go
@@ -75,6 +77,14 @@ The source code can be located at the link above.
 
 - keep each of the module independent
 - each module will serve itself
+
+### resources
+```
++---resources
+|       migration.go
+```
+
+`resources` contains useful file that helps the project run smoothly for example like open api files, migrations etc. 
 
 ### core
 
