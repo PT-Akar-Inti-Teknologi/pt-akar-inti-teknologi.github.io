@@ -104,54 +104,45 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Core
 
-Folder core berisi file-file core yang berkaitan dengan core aplikasi (tidak berkaitan dengan transaksi aplikasi)
+The core folder contains core-related files that are not related to application transactions.
 
-### main.js
+### main.j
 
-File entry dari project ini
-
-### bootstrap.js
-
-File untuk mendaftarkan router dan store pada masing-masing module
+The entry file of this project.
 
 ### bootstrap.js
 
-File untuk mendaftarkan global component dan global layout yg ada di folder core/components dan core/layouts
+File for registering routers and stores in each module.
 
 ### service.js
 
-File untuk mendaftarkan semua file di dalam folder core/services
+File for registering all files in the core/services folder.
 
 #### services/Api.js
 
-- File untuk handle call API, setiap method API diimplementasi di file ini.
-- Di file ini base URL dari API di daftarkan.
-- Terdapat interceptor request dan response.
-- Interceptor request bertujuan untuk menyisipkan token dari keycloak
-- Interceptor response bertujuan untuk menghandle success message (kecuali method get) dan handle error message yang akan di lempar ke component App.vue
+- File for handling API calls; each API method is implemented in this file.
+- In this file, the base URL of the API is registered.
+- There are request and response interceptors.
+- The request interceptor aims to insert the token from Keycloak.
+- The response interceptor aims to handle success messages (except for the GET method) and handle error messages that will be thrown to the App.vue component.
 
 #### services/Component.js
 
-Class untuk menampung global components dan global layouts dari aplikasi
+Class to hold global components and global layouts for the application.
 
 #### services/Router.js
 
-Class untuk menampung seluruh router dari semua modules (file 'router.js')
+Class to hold all routers from all modules (file 'router.js').
 
 #### services/Store.js
 
-Class untuk menampung seluruh store dari semua modules (file <module_name>.store.js)
+Class to hold all stores from all modules (file <module_name>.store.js).
 
 ## Modules
 
-- Folder ini berisi semua fitur yang ada di aplikasi yang dikelompokkan kedalam beberapa module.
-
-- Setiap module diibaratkan sebuah aplikasi kecil (terdapat page, router & store).
-
-- Untuk contoh, bisa melihat 'module-example'.
-
-- Untuk component dan mixin yang digunakan hanya di 1 module, bisa dibuat di dalam module tersebut (<module_name>/components & <module_name>/mixins).
-
-- Untuk file-file lain yg digunakan untuk kepentingan module bisa menggunakan aturan yg sama seperti di atas.
-
-- Contoh pemanggilan API bisa dilihat di module-example/store/example.store.js
+- This folder contains all the features of the application grouped into several modules.
+- Each module is considered a small application (with pages, routers, and stores).
+- For example, you can refer to 'module-example'.
+- For components and mixins used only in one module, they can be created within that module (<module_name>/components & <module_name>/mixins).
+- For other files used for module purposes, the same rules as above can be applied.
+- An example of API invocation can be seen in module-example/store/example.store.js.
