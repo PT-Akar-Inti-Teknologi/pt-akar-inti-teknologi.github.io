@@ -6,7 +6,7 @@ parent: VueJS
 grand_parent: Techstacks Guidelines
 ---
 
-# Java Standard
+# VueJS V2 Standard
 
 ## Tools Requirement
 
