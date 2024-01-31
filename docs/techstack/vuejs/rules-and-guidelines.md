@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rules & Guidelines
-permalink: /techstack/vuejs/v2/rules-and-guidelines
+permalink: /techstack/vuejs/rules-and-guidelines
 parent: VueJS
 grand_parent: Techstacks Guidelines
 ---

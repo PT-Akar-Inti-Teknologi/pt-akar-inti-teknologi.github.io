@@ -1,12 +1,12 @@
 ---
 layout: default
 title: VueJS Standards
-permalink: /techstack/vuejs/v2/standard
+permalink: /techstack/vuejs/standard
 parent: VueJS
 grand_parent: Techstacks Guidelines
 ---
 
-# VueJS V2 Standard
+# VueJS Standard
 
 ## Tools Requirement
 
