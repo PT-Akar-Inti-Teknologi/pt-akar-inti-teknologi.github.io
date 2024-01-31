@@ -32,14 +32,17 @@ we will be using **Visual Studio Code** as our Code Editor for work. [link](http
 - Bootstrap Vue
 
 ### Other Library
-| Router | vue-router |
-| State Management | vuex*, pinia* |
-| Http Client | axios, fetch |
-| Validation | vee-validate |
-| Micro Frontend | single-spa-vue |
-| Unit Test | jest |
-| Datetime | date-fns, day-js |
-| Utility | lodash, ramda |
+
+| Category          | Library                |
+|-------------------|------------------------|
+| Router            | vue-router             |
+| State Management  | vuex*, pinia*          |
+| Http Client       | axios, fetch           |
+| Validation        | vee-validate           |
+| Micro Frontend    | single-spa-vue         |
+| Unit Test         | jest                   |
+| Datetime          | date-fns, day-js       |
+| Utility           | lodash, ramda          |
 
 ### Project Structure
 
