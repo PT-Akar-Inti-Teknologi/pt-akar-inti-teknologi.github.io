@@ -46,13 +46,9 @@ we will be using **Visual Studio Code** as our Code Editor for work. [link](http
 
 ### Project Structure
 
-- Root directory
-![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/VueJS/V2/str-root.png?raw=true)
-
-- Src directory
+#### Explanation Src directory
 ![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/VueJS/V2/str-src.png?raw=true)
 
-#### Explanation
 - assets (contains images, css, files)​
 - components (contains global component)​
 - constants (contains constants static variable)​
@@ -60,10 +56,9 @@ we will be using **Visual Studio Code** as our Code Editor for work. [link](http
 - plugins (contains external / 3rd party library)​
 - services (contains global setup api, component, router, and store)
 
-- Core directory
+#### Explanation Core directory
 ![image](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/VueJS/V2/str-core.png?raw=true)
 
-#### Explanation
 - pages (contains all pages inside modules)
 - router (contains registered route in modules)​
 - store (contains state management files)
