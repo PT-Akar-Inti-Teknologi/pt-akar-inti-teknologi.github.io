@@ -76,4 +76,21 @@ export class UserDocument {
 - Make sure returned type from service not contain `response_output`, from `ResponseService` class.
 
 ## Do and Don't (s)
-**WIP**
+
+- TypeoOrm: Where
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-typeorm-where.png)
+
+- Variable Naming
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-variable-naming.png)
+
+- Wrap in Promise.all()
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-wrap-promise.png)
+
+- Saving Data
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-saving-data.png)
+
+- Response Type
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-response-type.png)
+
+- Parameter Naming
+![image](https://github.com/PT-Akar-Inti-Teknologi/pt-akar-inti-teknologi.github.io/blob/docs/nodejs-standard/docs/techstack/nodejs/images/dnd-parameter-naming.png)
