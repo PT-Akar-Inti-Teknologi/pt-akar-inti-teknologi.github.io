@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Plugins & Module
-permalink: /standards/plugins-module/
-parent: Standards
+title: Plugins & Modules
+permalink: /modules/plugins-module/
+parent: Plugins & Modules
 has_children: false
 ---
 
-# Plugins & module
+# Plugins & Modules
 {: .no_toc }
 
 ### Tools
