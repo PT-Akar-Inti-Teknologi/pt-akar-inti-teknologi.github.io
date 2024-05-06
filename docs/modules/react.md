@@ -9,8 +9,7 @@ has_children: false
 # React Library
 {: .no_toc }
 
-### Table
-- [React Table](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react)
+### [React Table](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react)
   
   AIT Reusable Table React provide You to use components that adapted to AIT standards. Its fully customizeable, realabel, integrated with Tailwind CSS
 
