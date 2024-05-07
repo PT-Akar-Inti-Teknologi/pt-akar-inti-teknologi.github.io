@@ -1,27 +1,14 @@
 ---
 layout: page
-title: React Library
+title: Others
 permalink: /modules/react-library/
 parent: Plugins & Modules
-has_children: false
+nav_order: 2
+has_children: true
 ---
 
-# React Library
+# Others
 {: .no_toc }
 
-### [React Table](https://ait-reusable-table-react.sandbait.work)
-  
-AIT Reusable Table React provide You to use components that adapted to AIT standards. Its fully customizeable, realabel, integrated with Tailwind CSS
-
-Features:
-- search
-- sorting
-- pagination
-- inject class
-  
-Github: [AIT Reusable Table React](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react)
-  
-Preview
-
-![image](https://raw.githubusercontent.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/main/Library/React/table.jpg)
-
+1. TOC
+{:toc}

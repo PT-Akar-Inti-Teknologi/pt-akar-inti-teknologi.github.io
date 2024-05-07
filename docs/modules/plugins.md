@@ -3,6 +3,7 @@ layout: page
 title: Plugins & Modules
 permalink: /modules/plugins-module/
 parent: Plugins & Modules
+nav_order: 1
 has_children: false
 ---
 
