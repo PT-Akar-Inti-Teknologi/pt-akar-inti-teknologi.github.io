@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Table
-permalink: /modules/react-library/
+permalink: /modules/react-library/table
 parent: React
 grand_parent: Plugins & Modules
 has_children: false
