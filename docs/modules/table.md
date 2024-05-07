@@ -1,6 +1,6 @@
 ---
 layout: default
-title: React Library
+title: Table
 permalink: /modules/react-library/
 parent: React
 grand_parent: Plugins & Modules

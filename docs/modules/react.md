@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Others
+title: React
 permalink: /modules/react-library/
 parent: Plugins & Modules
 nav_order: 2
