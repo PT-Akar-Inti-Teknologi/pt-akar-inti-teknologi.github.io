@@ -3,7 +3,7 @@ layout: page
 title: React
 permalink: /modules/react-library/
 parent: Plugins & Modules
-nav_order: 2
+nav_order: 3
 has_children: true
 ---
 
