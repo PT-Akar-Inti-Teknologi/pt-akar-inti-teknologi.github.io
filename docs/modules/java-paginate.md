@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Pageable & Specification
-permalink: /modules/java-library/table
+permalink: /modules/java-library/pageable
 parent: Java
 grand_parent: Plugins & Modules
 has_children: false
