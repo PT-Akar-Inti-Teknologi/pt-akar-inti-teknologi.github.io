@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Table
+title: Pageable & Specification
 permalink: /modules/java-library/table
-parent: React
+parent: Java
 grand_parent: Plugins & Modules
 has_children: false
 nav_order: 1

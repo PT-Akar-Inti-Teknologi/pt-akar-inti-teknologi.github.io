@@ -30,6 +30,11 @@ In order to provide consistent developer experience across many APIs and over a 
   - http://api.example.com/user-management/users/{id} 
 - Use query parameters (in bold) to apply filters on resources. For query names containing more than one word, use underscores ( _ ) as delimiter. Example:
   - http://api.example.com/device-managements/managed-devices?**region_area=USA&brand=XYZ&sort=installation-date**
+- Query parameters standard:
+  - `search`: to search data accross the fields. Example: `?search=John Doe`.
+  - `sort`: to search a field. There are two part, the first one is the field name to sort, and the second is sort type. Example: `?sort=name,desc`.
+  - `page`: indicates current page, start from 0. Example: `?page=0` indicates the first page.
+  - `limit`: indicates page size. Example: `?limit=10` indicates it will only displays 10 data.
 
 ## Endpoint Naming Principles
 
