@@ -11,7 +11,7 @@ nav_order: 5
 {: .no_toc }
 
 ## Why
-When changes or bugs arise in our system, it is crucial to conduct a thorough Technical Impact Analysis (TIA). This document serves several vital purposes:
+When changes or bugs arise in our system, it is crucial to conduct a thorough Technical Impact Analysis (TIA). A Technical Impact Analysis not only aids in the immediate resolution of issues but also serves as a valuable resource for ongoing improvement and risk mitigation in the development process.
 
 ## Structure
 - Problem
