@@ -21,7 +21,7 @@ Features:
 - pagination
 - inject class
   
-Github: [AIT Reusable Table React](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_table_react)
+Github: [AIT Reusable Table React](https://github.com/PT-Akar-Inti-Teknologi/ait_reusable_component_react)
   
 Preview
 

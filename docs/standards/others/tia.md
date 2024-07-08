@@ -7,7 +7,7 @@ grand_parent: Standards
 nav_order: 5
 ---
 
-# Technical Spesification Document
+# Technical Impact Analysis Document
 {: .no_toc }
 
 ## Why
