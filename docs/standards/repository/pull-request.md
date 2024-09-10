@@ -15,9 +15,9 @@ Having a consistent GitHub pull request template is important to ensure that eac
 
 ## Description
 
-If using bitrix as task management, every pull request must begin with `> [#{bitrix_task_id}] - {platform} - {comment/status}` in the description
+If using bitrix as task management, every pull request must begin with `> [#{task_id}] - {platform} - {comment/status}` in the description
 
-- bitrix_task_id: Bitrix Task ID, found in bitrix URL.
+- task_id: Task ID, found in bitrix URL or Jira Issue.
 - platform: must follow these options:
 
 platform | 
@@ -34,8 +34,8 @@ Mobile IOS |
 
 ### Frontend Pull Request
 ```
-> [#{bitrix_task_id}] - {platform} - {comment/status}  
-> [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request 
+> [#{task_id}] - {platform} - {comment/status}  
+> [#{task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request 
 
 Acceptance Criteria
 - [ ] Criteria A
@@ -84,8 +84,8 @@ Figma Link: [figma](https://www.figma.com/file/1234567/app?type=design&node-id=2
 
 ### Backend Pull Request
 ```
-> [#{bitrix_task_id}] - {platform} - {comment/status}  
-> [#{bitrix_task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request
+> [#{task_id}] - {platform} - {comment/status}  
+> [#{task_id}] - {platform} - {comment/status}  *if multiple bitrix card is pushed in single pull request
 
 Acceptance Criteria
 - [ ] Criteria A

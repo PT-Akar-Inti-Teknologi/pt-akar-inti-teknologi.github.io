@@ -13,6 +13,8 @@ nav_order: 4
 
 Git offers flexible branching strategies which is really useful for collaboration and CI/CD automation. However, not using appropriate naming conventions leads to confusion and complicates the code maintenance.
 
+>Important note: No one is allowed to push directly to the main branch such as Main, Staging, Development, Production and so on. Main branch can only be updated through **Pull Request process**.
+
 ## Convention
 
 Generally, there are two kinds of branches: Regular & Temporary Branches.
