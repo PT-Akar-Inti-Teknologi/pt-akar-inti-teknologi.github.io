@@ -19,7 +19,7 @@ nav_order: 4
 Use the following format,
 
 ```markdown
-type(scope): subject
+type(scope): [Task ID] subject
 
 body
 ```
@@ -42,6 +42,12 @@ body
 - Small caps with dash (-) as separator. For example "(web-server)" or "(storage-service)"
 - It can be empty when the change is a global or difficult to assign to a single component, in which case the parentheses are omitted
 
+`Task ID` is mandatory for type `feat`,`fix` and `refactor` and must follow these rules:
+- The Task ID can be obtained from Bitrix cards or Jira issues
+- The Task ID is used to identify the relationship between the commit message and the corresponding Bitrix card or Jira issue that is being worked on
+- write them in square brackets []
+- For multiple JIRA cards, separate them with a comma (,)
+
 `subject` is mandatory and must follow these rules:
 
 - In English
@@ -50,8 +56,6 @@ body
 - Imperative, present tense (eg: use "add" instead of "added", "adding" or "adds")
 - Don't use dot (.) at the end
 - Don't capitalize first letter
-- If related JIRA cards exist, include them at the beginning in square brackets []
-- For multiple JIRA cards, separate them with a comma (,)
 
 `body` is optional and must follow these rules:
 

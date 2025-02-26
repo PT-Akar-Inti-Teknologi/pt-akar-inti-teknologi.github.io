@@ -35,6 +35,7 @@ In order to provide consistent developer experience across many APIs and over a 
   - `sort`: to search a field. There are two part, the first one is the field name to sort, and the second is sort type. Example: `?sort=name,desc`.
   - `page`: indicates current page, start from 0. Example: `?page=0` indicates the first page.
   - `size`: indicates page size. Example: `?size=10` indicates it will only displays 10 data.
+- for header parameter, use `spinal-case` or `kebab-case`. For example: `X-Token-Access`,`ait-project-id`,`ait-project-key` and etc
 
 ## Endpoint Naming Principles
 

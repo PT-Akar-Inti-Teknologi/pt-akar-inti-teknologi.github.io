@@ -13,6 +13,8 @@ nav_order: 4
 
 Git offers flexible branching strategies which is really useful for collaboration and CI/CD automation. However, not using appropriate naming conventions leads to confusion and complicates the code maintenance.
 
+>Important note: No one is allowed to push directly to the main branch such as Main, Staging, Development, Production and so on. Main branch can only be updated through **Pull Request process**.
+
 ## Convention
 
 Generally, there are two kinds of branches: Regular & Temporary Branches.
@@ -38,7 +40,7 @@ Optionally, there may be additional Git branches that need to be kept permanentl
 As the name indicates, these are branches that can be created and deleted when needed. For naming use the following format,
 
 ```
-group/card-description
+group/[task ID]-description
 ```
 
 `group` is used to group the branch by its purpose, which can be as follows:
@@ -49,7 +51,7 @@ group/card-description
 - `experiment` for Experimental Branches: contains experimental code with new library, architecture, tools etc that need to be shared with others
 - `wip` for WIP (Work In Progress) Branches: contains works that won't be finished soon or need to be completed by other
 
-`card`
+`task ID`
 - If related JIRA cards exist, include them in the card section
 - For multiple JIRA cards, separate them with a underscore (_)
 - example: feat/DEMO-1234_DEMO-4567-login

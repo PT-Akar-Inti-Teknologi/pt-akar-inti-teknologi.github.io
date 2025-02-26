@@ -95,7 +95,7 @@ public interface JiraReportCommandAdapter {
 
 you should install codeium ai on your IDE:
 
-![img.png](img.png)
+![img.png](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/Java/img-plugin-javadoc.png?raw=true)
 
 ### Video example
-![Video For Example using Codeium](video-java-doc-example.mp4)
+![Video For Example using Codeium](https://github.com/PT-Akar-Inti-Teknologi/ait_development_standard_assets/blob/main/Techstack/Java/video-java-doc-example.gif?raw=true)
