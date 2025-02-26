@@ -50,6 +50,8 @@ body
 - Imperative, present tense (eg: use "add" instead of "added", "adding" or "adds")
 - Don't use dot (.) at the end
 - Don't capitalize first letter
+- If related JIRA cards exist, include them at the beginning in square brackets []
+- For multiple JIRA cards, separate them with a comma (,)
 
 `body` is optional and must follow these rules:
 
@@ -64,32 +66,32 @@ body
 ## Examples
 
 ```
-fix(middleware): ensure Range headers adhere more closely to RFC 2616
+fix(middleware): [DEMO-1234] ensure Range headers adhere more closely to RFC 2616
 ```
 
 ```
-feat(store): add multi shift support to store operational hours
+feat(store): [DEMO-1234] add multi shift support to store operational hours
 
 - Modify Update Store Operational Hours API endpoint
 - Update query list store to support multi shift
 ```
 
 ```
-feat(storage): add AWS S3 support
+feat(storage): [DEMO1234, DEMO-4567] add AWS S3 support
 ```
 
 ```
-refactor: move all auth functionalities to a separate module
+refactor: [DEMO-1234] move all auth functionalities to a separate module
 ```
 
 ```
-chore: release 2.0.1
+chore: [DEMO-1234] release 2.0.1
 ```
 
 ```
-build: bump axios to 0.21.1
+build: [DEMO-1234] bump axios to 0.21.1
 ```
 
 ```
-style: replace CRLF to LF
+style: [DEMO-1234] replace CRLF to LF
 ```

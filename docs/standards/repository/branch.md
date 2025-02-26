@@ -38,7 +38,7 @@ Optionally, there may be additional Git branches that need to be kept permanentl
 As the name indicates, these are branches that can be created and deleted when needed. For naming use the following format,
 
 ```
-group/description
+group/card-description
 ```
 
 `group` is used to group the branch by its purpose, which can be as follows:
@@ -48,6 +48,11 @@ group/description
 - `feat` for Feature Branches: new features that eventually be merged into regular branch
 - `experiment` for Experimental Branches: contains experimental code with new library, architecture, tools etc that need to be shared with others
 - `wip` for WIP (Work In Progress) Branches: contains works that won't be finished soon or need to be completed by other
+
+`card`
+- If related JIRA cards exist, include them in the card section
+- For multiple JIRA cards, separate them with a underscore (_)
+- example: feat/DEMO-1234_DEMO-4567-login
 
 `description` describes the branch using the following conventions:
 
