@@ -7,71 +7,233 @@ grand_parent: Standards
 nav_order: 4
 ---
 
-# Database
+# Database Convention & Best Practices
 
 ## Why
 
-Naming conventions are important in a database and in application development in general. Having clear, concise names for tables, procedures, etc., is important for many reasons. It makes searching for the relevant table easier. It is more intuitive for someone learns the system.
+Consistency in database naming and design is essential to:
 
-## Database Convetion
-### Common Conventions
-- Table name should have plural name.
-- Both tables and columns should use lower case, with underscores. These are very readable and cross platform.
-- Each table in the database must have a timestamp column for created_at and/or updated_at, deleted_at for soft delete
-  - for date type, it is recommended to use zoned date time (timestamp with timezone)
-- Each table in the database it is recommended to add created_by, updated_by, and/or deleted_by
-- Foreign key should have table name as prefix
+- Simplify collaboration between developers
+- Improve query performance
+- Prevent hard-to-detect design issues
+- Simplify debugging and maintenance
 
-### Tables convention:
-- Use a collective name. For example staff and employees.
-- Do not prefix with tbl or any other such descriptive prefix or Hungarian notation.
-- Never give a table the same name as one of its columns and vice versa. 
+---
 
+## Table & Column Naming
 
-### Columns convention:
-- Always use the singular name.
-- Do not add a column with the same name as its table and vice versa.
-- Always use lowercase except where it may make sense not to such as proper nouns.
-- For boolean column type, use 'is_' prefix. Example: is_active, is_used.
-- Avoid boolean/number for multiple status column. Example: order status, rather than 1 (pending), 2 (paid), 3 (complete), use ENUM 'pending', 'paid', or 'complete'.
+### Tables
 
+| Recommended Practice | Avoid | Notes |
+|----------------------|-------|-------|
+| Use plural names: `users`, `orders` | `user`, `tbl_user` | Avoid prefixes like `tbl_` or Hungarian notation |
+| Use `lower_snake_case`: `order_items` | `OrderItems`, `orderItems` | Keep consistent naming convention |
+| Use collective names: `employees`, `staff` | Vague singular names | Better represents table contents |
+| Use `id` for primary key and `xxx_id` for foreign keys | `uid`, `id_user` | Standard and easily understood |
 
-## Database Flow Tips
-- EXPLAIN Your SELECT Queries.
+### Columns
 
-Using the EXPLAIN keyword can give you insight on what MySQL is doing to execute your query
-{: .fs-2 }
+| Recommended Practice | Avoid | Notes |
+|----------------------|-------|-------|
+| Use singular column names: `name`, `created_at` | Columns named like the table | Avoid duplication |
+| Use all lowercase | `CreatedAt`, `Created_At` | Consistency is key |
+| Prefix boolean columns with `is_`: `is_active` | `active`, `verified` | Makes boolean intent clear |
+| Use ENUM for static values | Numeric status like 1, 2, 3 | ENUM is clearer and more efficient |
+| Use `CHECK` constraints if applicable | Application-only validation | DB-level validation is safer |
 
-- Things that need attention in query that may slowing the performance:
-  - Sub query
-  - SUM query
-  - Avoid select *, all columns name should written explicitly
-  - Use wrong data type, for example use VARCHAR over ENUM when field will contain only a few different kinds of values. ENUM type columns are very fast and compact. Internally they are stored like TINYINT
+---
 
-The more data is read from the tables, the slower the query will become. It increases the time it takes for the disk operations. Also when the database server is separate from the web server, you will have longer network delays due to the data having to be transferred between the servers.
-{: .fs-2 }
+## Timestamp & Audit Columns
 
-- Add Index to key columns
-  - Make sure to index the columns which are used in JOIN clauses so that the query returns the result fast. 
-  - If you use UPDATE statement that involves more than one table make sure that all the columns which are used to join the tables are indexed
-- Count data should be implemented at the database level, rather than application level.
-- Insert query should use TRANSACTION, so if one of the processes is failed, all insert processes can be rolled back. 
-- Should make sure to use production environment when do migration and seed and make sure the seed process won't be truncate the table data 
-- Make sure developer has the right access so the developer won't drop database or truncate it 
-- Choose proper Database Engine: 
-  - If you develop an application that reads data more often than writing (ex: search engine), choose MyISAM storage engine. 
-  - If you develop an application that writes data more often than reading (ex: real-time bank transactions), choose INNODB storage engine. 
+- Add `created_at`, `updated_at`, `deleted_at` to every table using `timestamp with time zone`
+- Include `created_by`, `updated_by`, `deleted_by` to support auditing
+- Use default value (`now()`) and triggers where applicable
+- Consider using row versioning for optimistic locking
 
-- Recommend to split the Big DELETE or INSERT Queries 
+---
 
-If you end up locking your tables for any extended period of time (like 30 seconds or more), on a high traffic web site, you will cause a process and query pileup, which might take a long time to clear or even crash your web server. 
-{: .fs-2 }
+## Query Optimization Guidelines
 
-If you have some kind of maintenance script that needs to delete large numbers of rows, just use the LIMIT clause to do it in smaller batches to avoid this congestion.
-{: .fs-2 }
+### General
 
-- Always check the query generated by ORM. There are many cases that query is not optimal by ORM. Please check with EXPLAIN. Watch EXECUTION TIME properly. 
-- WARNING, using association query generated by ORM may impact performance. ALWAYS check execution time query using associations. 
-- Wrap your query inside CACHE. Cache 1 min will help performance.
+- Use `EXPLAIN` or `EXPLAIN ANALYZE` to inspect query performance
+- Avoid `SELECT *`; explicitly list required columns
+- Be careful with subqueries and large aggregations
+- Avoid using functions in WHERE clauses if indexed
+- Use `LIMIT` for large result sets
+- Apply cache for heavy queries (at least 1 minute if possible)
 
+### Indexing
 
+- Add indexes on columns used in `JOIN`, `WHERE`, and `ORDER BY`
+- Avoid over-indexing; it can slow down write performance
+- Use composite indexes with correct column order
+
+#### Common Index Use Cases
+
+| Scenario | Explanation | Example |
+|----------|-------------|---------|
+| Used in `WHERE` clause | For efficient filtering | `SELECT * FROM orders WHERE status = 'pending'` (Index on `status`) |
+| Used in `JOIN` conditions | To avoid full table scans | `JOIN users ON users.id = orders.user_id` (Index on `orders.user_id`) |
+| Used in `ORDER BY` | Accelerate sorting | `ORDER BY created_at DESC` (Index on `created_at DESC`) |
+| Combination of `WHERE` and `ORDER BY` | Use composite index | `WHERE user_id = ? ORDER BY created_at DESC` (Index on `user_id, created_at DESC`) |
+| Used in `GROUP BY` or aggregates | Speeds up aggregation | `GROUP BY status` (Index on `status`) |
+| Used in `DISTINCT` queries | Improve deduplication | `SELECT DISTINCT status FROM orders` (Index on `status`) |
+
+#### Indexing Anti-patterns
+
+| Scenario | Explanation | Example |
+|----------|-------------|---------|
+| Index on low-cardinality columns | Ineffective | Boolean field like `is_active` with 99% same value |
+| Index on frequently updated fields | Adds write overhead | Index on `updated_at` or `last_accessed` |
+| Indexes on unused columns | Waste of space | Debug-only or internal fields |
+| Wrong order in composite index | Query planner cannot use | Index (`a`, `b`) for query `WHERE b = ? AND a = ?` |
+| Indexing every column | Overkill | Especially in high-write environments |
+
+#### Index Tips
+
+- Use `EXPLAIN` to verify if index is used
+- Use partial indexes if only subset of rows is relevant (PostgreSQL)
+- Consider covering indexes for read-heavy queries
+- Periodically review unused or duplicate indexes
+
+---
+
+## ORM Consideration
+
+- Always check the SQL generated by ORM
+- Use `EXPLAIN` to verify execution plan
+- Avoid eager loading unless necessary
+- Prevent N+1 problems from lazy loading in loops
+- Use parameter binding to avoid SQL injection
+- Benchmark performance with associations
+
+---
+
+## Migration, Seeding, and Access Control
+
+- Use structured migration tools (Flyway, Liquibase, or ORM-based)
+- Ensure seed scripts are idempotent and do not truncate critical data
+- Developers should not have `DROP`, `TRUNCATE`, or `SUPER` privileges
+- Audit all DDL and DML actions in production environments
+- Separate access roles for dev, staging, and production environments
+
+---
+
+## Database Engine (MySQL)
+
+| Requirement | Recommended Engine |
+|-------------|--------------------|
+| General purpose | InnoDB |
+| Archival or historical data | Partitioned tables or alternative engines |
+
+Note: MyISAM is deprecated and should not be used in production.
+
+---
+
+## Data Management & Batch Processing
+
+- Use batch processing for large `DELETE` or `INSERT` operations with `LIMIT`
+- Archive inactive data to dedicated tables
+- Consider table partitioning for large datasets (>10 million rows)
+- Avoid long-held locks that can block concurrent access
+
+---
+
+## Monitoring & Performance Tools
+
+- Enable and monitor slow query logs
+- Use tools like:
+  - `pg_stat_statements` (PostgreSQL)
+  - `performance_schema` (MySQL)
+  - APM tools (New Relic, DataDog, etc.)
+- Avoid relying solely on ORM for complex queries
+
+---
+
+## Stored Procedure
+
+Stored procedure usage is generally discouraged in modern application architecture due to:
+
+- Business logic should reside in the application layer for better testability, traceability, and portability
+- Stored procedures are harder to maintain, test, and version control
+- SQL syntax and features vary between database vendors
+
+However, stored procedures can be used with strong justification such as:
+
+- Performance optimization that cannot be achieved from the application layer
+- Reusable logic across multiple apps sharing the same DB
+- Enforced access control at the database layer
+
+**Recommended Alternatives:**
+- Use lightweight SQL functions for simple calculations
+- Implement core logic in the application/service layer
+
+---
+
+## Race Condition & Locking Strategy (Advanced)
+
+This is an advanced topic relevant to systems handling concurrent data access and transactions.
+
+### Why It Matters
+
+A race condition occurs when two or more transactions access and modify the same data simultaneously without proper synchronization, resulting in inconsistent or lost data.
+
+Common example:
+- Two users try to check out the last available stock at the same time.
+- Two admins update the same user record concurrently.
+
+### Types of Locking
+
+#### Pessimistic Locking
+
+- Locks the row when read
+- Other transactions must wait
+- Suitable for high-conflict, critical operations
+
+Example (PostgreSQL):
+
+```sql
+SELECT * FROM products WHERE id = 'p-123' FOR UPDATE;
+```
+
+#### Optimistic Locking
+
+- Doesn't lock immediately
+- Checks the version field during update; update fails if the version has changed
+- Ideal for low-conflict systems
+
+Example:
+
+```sql
+-- Requires a version column
+UPDATE products
+SET stock = stock - 1, version = version + 1
+WHERE id = 'p-123' AND version = 3;
+```
+
+### Comparison of Pessimistic vs Optimistic Locking
+
+| Aspect | Pessimistic | Optimistic |
+|--------|-------------|------------|
+| Conflict frequency | High | Low |
+| Performance | Slower (due to blocking) | Faster, may need retry |
+| Deadlock Risk | Possible | None |
+| Best for | Stock, banking | Profile updates, background reports |
+
+### Recommended Use Cases
+
+| Use Case | Locking Strategy |
+|----------|------------------|
+| Buying last unit of product | Pessimistic |
+| Bank transfers | Pessimistic |
+| Updating user profile | Optimistic |
+| Background reporting | Optimistic |
+| Limited quota checkout | Pessimistic |
+
+### Implementation Tips
+
+- Avoid long-running transactions
+- Use `statement_timeout` or equivalent
+- Apply retry logic on optimistic failures
+- Monitor locking and blocking queries with native DB tools

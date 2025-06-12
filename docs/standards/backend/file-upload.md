@@ -7,62 +7,99 @@ grand_parent: Standards
 nav_order: 5
 ---
 
-# File Upload
+# File Upload Standard
 
-## Recommendation
-- Use multipart/form-data instead of base64
-  - base64-encoded data is approximately 33% larger, meaning longer upload times, more bandwidth used
-  - API body payloads are larger/too large.
-  - Need client's side processor to transform the data from a binary file to a string, and you have to reverse the process on the server side to transform data from a string to a binary file.
-- It is recommended to resize the file in server side, to avoid slow loading in the client side.
-- It also recommended add validation for mime-type in the server side.
-- When file is deleted from table, make sure the file also deleted from storage (S3, local/cloud storage, etc)
-  
+## Recommendations
 
-## Saving File as Multipart/form-data Flow
+- Use `multipart/form-data` instead of base64 encoding.
+  - Base64 increases file size by ~33%, leading to higher bandwidth usage and longer upload times.
+  - Requires client-side processing to encode and server-side decoding, introducing unnecessary overhead.
+- Perform server-side file resizing for image files to reduce payload sent to clients and improve performance.
+- Validate MIME type server-side to prevent spoofing and ensure only allowed file types are processed.
+- When a file is deleted from the database, ensure the actual file is removed from storage (S3, local disk, etc.).
+- Avoid accepting executable files or unknown MIME types.
 
-1. Provide separate table to save file data. For Example "file" table
-   
-    <table>
-      <thead>
-        <tr>
-          <td>id</td>
-        </tr>
-        <tr>
-          <td>name</td>
-        </tr>
-        <tr>
-          <td>mime_type</td>
-        </tr>
-        <tr>
-          <td>file_path</td>
-        </tr>
-        <tr>
-          <td>is_uploaded</td>
-        </tr>
-        <tr>
-          <td>is_resized (optional)</td>
-        </tr>
-        <tr>
-          <td>resized_size (optional)</td>
-        </tr>
-        <tr>
-          <td>created_at</td>
-        </tr>
-        <tr>
-          <td>modified_at</td>
-        </tr>
-      </thead>
-    </table>
+---
 
-2. Backend need to provide API service, specific to upload the file.
-  - May needs to provide destination folder.
-   
-3. Frontend wil uploads the file to backend, backend will response with file ID.
-  - File will be saved in "file" table, and mark the "is_uploaded" with "false"
-  - Backend need to check the destination folder, if not exists then need to create it
-  - Backend also may need to rename the filename to avoid unexpected overwriting existing file
+## Recommended File Table Schema
 
-4. Frontend will use file ID and use it with json payload in the main flow.
-  - Backend will save the file ID in the main flow table.
-  - After uploaded to backend, backend need to mark the file  data with "is_uploaded" true
+| Column Name      | Type         | Description                              |
+|------------------|--------------|------------------------------------------|
+| `id`             | UUID         | Primary key                              |
+| `original_name`  | text         | Filename as uploaded by the user         |
+| `stored_name`    | text         | Renamed filename to prevent conflicts    |
+| `mime_type`      | text         | Validated content-type                   |
+| `extension`      | varchar      | File extension                           |
+| `file_path`      | text         | Path to file location in storage         |
+| `storage_type`   | enum         | e.g., `local`, `s3`, `gcs`               |
+| `checksum`       | text         | Optional hash for integrity check        |
+| `size`           | bigint       | File size in bytes                       |
+| `is_uploaded`    | boolean      | True when the upload is complete         |
+| `is_resized`     | boolean      | True if the image was resized            |
+| `resized_size`   | bigint       | Optional resized file size               |
+| `created_at`     | timestamptz  | Record creation timestamp                |
+| `updated_at`     | timestamptz  | Last update timestamp                    |
+
+---
+
+## File Upload Flow
+
+### Step 1: Upload File
+
+**Endpoint**: `POST /upload`  
+**Payload**: `multipart/form-data`
+
+- Client uploads the file
+- Server validates:
+  - MIME type and size
+  - File extension
+- Server actions:
+  - Renames file to avoid conflicts
+  - Creates folder if needed
+  - Saves physical file
+  - Inserts record into `files` table
+  - Sets `is_uploaded = true`
+- Response:
+  - `file_id`, `stored_name`, `url`, `size`, etc.
+
+### Step 2: Attach File to Entity
+
+**Endpoint**: `PUT /entity/{id}/file`  
+**Payload**: JSON body with `file_id`
+
+- Server checks if:
+  - File exists and is uploaded
+  - File is allowed for this operation
+- File ID is saved as foreign key in the main entity
+
+### Optional: Resize or Post-Process
+
+- Server-side background job resizes or converts file
+- Updates `is_resized`, `resized_size`, or adds `cdn_url`
+
+---
+
+## File Deletion Policy
+
+- When a file or related entity is deleted:
+  - The file entry in the `files` table should be soft-deleted or removed
+  - The physical file should be deleted from storage
+  - Consider background jobs or lifecycle policies for large-scale cleanup
+
+---
+
+## Security Best Practices
+
+- Check file MIME type and file extension consistency
+- Reject executable or scriptable file types (e.g., `.exe`, `.sh`, `.php`)
+- Set upload size limits (e.g., max 5 MB per file)
+- Use antivirus scanning for public-facing upload endpoints
+- Prefer streamed upload to avoid memory overhead
+- Return structured metadata (ID, size, type, download URL)
+
+---
+
+## Download Recommendation
+
+- Protect file download URLs with authentication if needed
+- Avoid exposing direct file system paths
