@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Database
@@ -14,10 +13,10 @@ nav_order: 4
 
 Consistency in database naming and design is essential to:
 
-- **Simplify collaboration** between developers
-- **Improve query performance**
-- **Prevent hard-to-detect design issues**
-- **Simplify debugging and maintenance**
+- Simplify collaboration between developers
+- Improve query performance
+- Prevent hard-to-detect design issues
+- Simplify debugging and maintenance
 
 ---
 
