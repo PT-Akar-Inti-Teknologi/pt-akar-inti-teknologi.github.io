@@ -81,7 +81,7 @@ feat(store): [DEMO-1234] add multi shift support to store operational hours
 ```
 
 ```
-feat(storage): [DEMO1234, DEMO-4567] add AWS S3 support
+feat(storage): [DEMO-1234, DEMO-4567] add AWS S3 support
 ```
 
 ```
