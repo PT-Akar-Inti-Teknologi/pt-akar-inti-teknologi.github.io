@@ -11,10 +11,39 @@ nav_order: 2
 
 ## Why
 
-Repository name is limited in character (40 characters max in Github), so description (or Project Description in Gitlab) is the best way to explain in brief about the repository while it's still searchable and showing in search results.
+Repository names are often limited in length (e.g., 40 characters on GitHub), so the **description field** (or "Project Description" in GitLab) is essential to:
+- Clarify the full meaning behind abbreviated or compact repository names
+- Improve repository discoverability via search
+- Provide immediate context without needing to open the repository
 
-## Convention
+## Description Format
 
-- It should at least explain the repository name. For example, the description for `ait_jira_report_backend` repository should be "**AIT Jira Report Backend**" at the minimum, this way at least we know what `ait` or `jira_report` stands for.
-- It should contains the main technology or framework used. For example, "**AIT Jira Report Backend Using Spring Boot**", this way we can easily search repository based on major framework or technology such as Spring Boot, Laravel, Angular JS, Flutter and so on.
-- If necessary put the programming language used to differentiate with other. For example put Kotlin to differentiate with other project using Java, or put Swift to differentiate with other project using Objective C.
+Use the following structure:
+
+```
+<Project Name> - <Main Technology or Framework> [ - <Programming Language> ]
+```
+
+### Guidelines
+
+- **Describe the full repository name**.  
+  For example, for `ait_jira_report_backend`, write:  
+  `"AIT Jira Report Backend"`  
+  This clarifies what `ait`, `jira_report`, and `backend` stand for.
+
+- **Mention the primary technology or framework used.**  
+  Example: `"AIT Jira Report Backend - Spring Boot"`  
+  This helps filtering repos by tech like Spring Boot, Laravel, Angular, etc.
+
+- **Optionally include the programming language** if multiple languages are possible.  
+  Example: `"Mobile Order App - Swift"` vs `"Mobile Order App - Objective C"`
+
+## Examples
+
+| Repository Name               | Description                                          |
+|------------------------------|------------------------------------------------------|
+| `ait_jira_report_backend`    | AIT Jira Report Backend - Spring Boot - Kotlin      |
+| `crm_mobile_ios`             | CRM iOS App - Native - Swift                        |
+| `crm_mobile_android`         | CRM Android App - Native - Kotlin                   |
+| `jhd_web_auth_backend`       | JHD Web Auth Backend - NodeJS - TypeScript          |
+| `jhd_web_frontend`           | JHD Web Frontend - Angular                          |

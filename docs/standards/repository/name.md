@@ -11,12 +11,65 @@ nav_order: 1
 
 ## Why
 
-From time to time, developers refer to an old project as a reference when working on a new and similar one, hence repositories should be easy to search by its name, clear and self-explanatory.
+Clear and consistent repository names allow developers to:
+- Quickly find existing projects as references
+- Understand project context from its name
+- Align naming across departments (e.g., CRM, QA, DevOps)
 
-## Convention
+## Naming Convention
 
-- It should be all in lowercase
-- It should be in snake case, using underscore (`_`). Correct: `ait_jira`. Wrong: `AIT-jira`
-- The second part should be the known code name of the project. For example `ait-web` for AIT Website,  this should be in sync with the client code in CRM used by other departments.
-- The next part should be the domain specific part of the project. For example `backend` for Backend part, `frontend` for web application part, `mobile` for mobile app developed using hybrid framework such as Flutter or React Native, `android` and `ios` each for mobile app developed in native.
-- For microservice module, you should include the module name in the repository name. For example, in the JHD project, you have two modules, authentication and product, so the repository names should be `jhd_web_authentication_backend` and `jhd_web_product_backend`.
+Use this format:
+
+```
+<client_code>_<project_code>_<domain>_<platform>[_<module>]
+```
+
+### Components:
+- `client_code`: Short code that identifies the client or organization. Must align with CRM or internal codes.
+- `project_code`: Unique name for the project. Should be consistent across divisions.
+- `domain`: Logical domain such as `web`, `admin`, or `mobile`.
+- `platform`: Indicates platform or stack, such as:
+  - `backend`
+  - `frontend`
+  - `mobile` (for hybrid apps like Flutter)
+  - `android`
+  - `ios`
+- `module`: Optional. Used for microservice architecture or modular monoliths.
+
+## Rules
+
+- Use all lowercase
+- Use underscores `_` as separators
+- Avoid using dashes `-`, camelCase, or PascalCase
+- Keep the name descriptive yet concise
+
+## Examples
+
+| Use Case                   | Repository Name                    |
+|----------------------------|------------------------------------|
+| Web backend                | `jhd_web_backend`                  |
+| Web frontend               | `jhd_web_frontend`                |
+| Admin panel backend        | `jhd_admin_backend`               |
+| Admin panel frontend       | `jhd_admin_frontend`              |
+| Mobile app (Flutter)       | `jhd_mobile`                       |
+| Native Android             | `jhd_mobile_android`              |
+| Native iOS                 | `jhd_mobile_ios`                  |
+| Microservice - Auth        | `jhd_web_auth_backend`            |
+| Microservice - Product     | `jhd_web_product_backend`         |
+
+## Anti-Patterns (Do NOT use)
+
+```
+⛔ AIT-JIRA
+⛔ JIRA_AIT
+⛔ AitJiraWeb
+⛔ crmWebsite
+```
+
+These violate casing, structure, or naming consistency.
+
+## Notes
+
+For multi-repo setups:
+- Keep naming consistent across related services
+- Align naming with deployment targets and monitoring dashboards

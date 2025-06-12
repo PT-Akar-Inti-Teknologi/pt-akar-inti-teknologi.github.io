@@ -11,54 +11,72 @@ nav_order: 4
 
 ## Why
 
-Git offers flexible branching strategies which is really useful for collaboration and CI/CD automation. However, not using appropriate naming conventions leads to confusion and complicates the code maintenance.
+Git offers flexible branching strategies which are very useful for collaboration and CI/CD automation. However, using inconsistent naming conventions can lead to confusion and difficulty maintaining codebases.
 
->Important note: No one is allowed to push directly to the main branch such as Main, Staging, Development, Production and so on. Main branch can only be updated through **Pull Request process**.
+> **Important:** No one is allowed to push directly to main branches like `main`, `staging`, `development`, or `production`. These branches can only be updated via **Pull Request**.
 
-## Convention
+## Branch Types
 
-Generally, there are two kinds of branches: Regular & Temporary Branches.
+There are two kinds of branches: **Regular Branches** and **Temporary Branches**.
 
-### Regular Git Branches
+---
 
-These branches will be available permanently in a repository.
+## Regular Branches
 
-- `main` is the main branch and used for production. It should be stable all the time and no direct commits are allowed. Changes in this branch should be done **ONLY** by merging from other regular branch such as `staging`.
+These are permanent branches in the repository:
 
-- `staging` contains all the code for QA, user testing or automation testing of all changes implemented. Before any change goes to production environment, it must go through this branch.
+- `main`: The production branch. Always stable. No direct commits allowed. Changes must come from PRs from other branches such as `staging`.
+- `staging`: Used for QA, UAT, and automation testing before changes are pushed to production.
+- `development`: The default development branch where all code is integrated. Prefer PRs over direct commits.
 
-- `development` is the main **development** branch. This is where all developers contribute to project by commiting changes directly or using Pull Request (PR). The later is more preferable.
+Other permanent branches may be added (e.g., for specific environments or platforms). When doing so:
 
-Optionally, there may be additional Git branches that need to be kept permanently in a repository. For example, to mark a certain milestone (e.g: sprints) or different environments or architecture (e.g: OS versions). Some conventions that need to be followed are:
+- Keep names short: `ubuntu20`, not `for-server-with-ubuntu-version-20`
+- Use dashes `-` for separators
+- Ensure it's truly permanent—otherwise, use a temporary branch instead
 
-- make it as short as possible: `ubuntu20` instead of `for_server_with_ubuntu_version_20`
-- use underscore as separator: `multi_module` not `multi module`
-- ask yourself whether it is necessary to keep it permanently in the repository, otherwise use temporary git branch
+---
 
-### Temporary Git Branches
+## Temporary Branches
 
-As the name indicates, these are branches that can be created and deleted when needed. For naming use the following format,
+Created for specific tasks and removed after merging. Use the format:
 
 ```
-group/[task ID]-description
+<group>/<task-id>-description
 ```
 
-`group` is used to group the branch by its purpose, which can be as follows:
+### Group Prefixes
 
-- `bugfix` for Bug Fix Branches: contains fixes for known bugs or QA findings
-- `hotfix` for Hot Fix Branches: contains urgent fixes, usually small changes and immediate to fix a problem in production, hence the urgency
-- `feat` for Feature Branches: new features that eventually be merged into regular branch
-- `experiment` for Experimental Branches: contains experimental code with new library, architecture, tools etc that need to be shared with others
-- `wip` for WIP (Work In Progress) Branches: contains works that won't be finished soon or need to be completed by other
+| Group      | Purpose                                                       |
+|------------|---------------------------------------------------------------|
+| `feat`     | New features                                                  |
+| `bugfix`   | Bug fixes or QA findings                                      |
+| `hotfix`   | Urgent fixes for production                                   |
+| `experiment` | Tryouts with new libraries, tools, or architectures         |
+| `wip`      | Work-in-progress that may be incomplete or shared with others |
 
-`task ID`
-- If related JIRA cards exist, include them in the card section
-- For multiple JIRA cards, separate them with a underscore (_)
-- example: feat/DEMO-1234_DEMO-4567-login
+### Task ID
 
-`description` describes the branch using the following conventions:
+- Include task ID if available (e.g., JIRA ticket)
+- Use dash `-` to separate multiple IDs
+- Example: `feat/DEMO-1234-DEMO-4567-login`
 
-- use all lower case: `bugfix/login` not `BugFix/Login`
-- make it as short as possible: `feat/operational_hours` instead of `feat/implementing_store_operational_hours`
-- use noun: `feat/ldap_integration` instead of `feat/integrates_ldap`
-- use underscore as separator: `wip/payment_gateway` not `wip/payment-gateway`
+### Description Rules
+
+- Use **lowercase** only: `bugfix/login-error`, not `BugFix/LoginError`
+- Be concise: `feat/operational-hours`, not `feat/implementing-store-operational-hours`
+- Use **nouns**: `feat/ldap-integration`, not `feat/integrates-ldap`
+- Use **dashes** `-` as word separators
+
+---
+
+## Examples
+
+| Use Case                          | Branch Name                                 |
+|----------------------------------|---------------------------------------------|
+| Feature for login screen         | `feat/DEMO-1234-login`                      |
+| Fix for broken query             | `bugfix/DEMO-5678-invalid-query`           |
+| Hotfix for payment crash         | `hotfix/DEMO-9012-payment-crash`           |
+| WIP for redesign                 | `wip/redesign-ui`                           |
+| Experimental refactor            | `experiment/new-cache-strategy`            |
+| Multi-ticket feature             | `feat/DEMO-1111-DEMO-2222-store-summary`   |
