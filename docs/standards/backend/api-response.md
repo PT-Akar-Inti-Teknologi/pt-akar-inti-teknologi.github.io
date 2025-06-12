@@ -46,7 +46,7 @@ All API responses must follow the structure below, regardless of success or erro
 <PROJECT_CODE>-<MODULE>-<CODE>
 ```
 
-- `PROJECT_CODE`: Code for the system (e.g., `PTPR`)
+- `PROJECT_CODE`: Code for the system (e.g., `DEMO`)
 - `MODULE`: Logical module or service name (e.g., `LOGIN`, `ORDER`, `AUTH`)
 - `CODE`: Either HTTP status code or business code
 
@@ -54,10 +54,10 @@ All API responses must follow the structure below, regardless of success or erro
 
 | Type           | Example               | Meaning                        |
 |----------------|-----------------------|--------------------------------|
-| HTTP Code      | `PTPR-LOGIN-200`      | Successful login               |
-| Business Code  | `PTPR-LOGIN-00001`    | Invalid password               |
-| HTTP Code      | `PTPR-ORDER-500`      | Server error in order service |
-| Business Code  | `PTPR-AUTH-00002`     | Invalid token in auth service |
+| HTTP Code      | `DEMO-LOGIN-200`      | Successful login               |
+| Business Code  | `DEMO-LOGIN-00001`    | Invalid password               |
+| HTTP Code      | `DEMO-ORDER-500`      | Server error in order service |
+| Business Code  | `DEMO-AUTH-00002`     | Invalid token in auth service |
 
 ---
 
@@ -86,7 +86,7 @@ Example:
 
 ```json
 "response_schema": {
-  "response_code": "PTPR-LOGIN-0000",
+  "response_code": "DEMO-LOGIN-0000",
   "response_message": "Sukses",
   "timestamp": "2025-06-12T09:32:12+07:00",
   "request_id": "123456789abcdef"
@@ -101,7 +101,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-0000",
+    "response_code": "DEMO-LOGIN-0000",
     "response_message": "Sukses"
   },
   "response_output": {
@@ -117,7 +117,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-0000",
+    "response_code": "DEMO-LOGIN-0000",
     "response_message": "Sukses"
   },
   "response_output": {
@@ -136,7 +136,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-0000",
+    "response_code": "DEMO-LOGIN-0000",
     "response_message": "Sukses"
   },
   "response_output": {
@@ -164,7 +164,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-00001",
+    "response_code": "DEMO-LOGIN-00001",
     "response_message": "Parameter tidak valid"
   },
   "response_output": {
@@ -180,7 +180,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-404",
+    "response_code": "DEMO-LOGIN-404",
     "response_message": "User tidak ditemukan"
   },
   "response_output": null
@@ -191,7 +191,7 @@ Example:
 ```json
 {
   "response_schema": {
-    "response_code": "PTPR-LOGIN-500",
+    "response_code": "DEMO-LOGIN-500",
     "response_message": "Internal server error"
   },
   "response_output": null
