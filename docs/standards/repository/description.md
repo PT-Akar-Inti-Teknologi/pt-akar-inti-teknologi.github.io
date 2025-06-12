@@ -11,7 +11,7 @@ nav_order: 2
 
 ## Why
 
-Repository names are often limited in length (e.g., 40 characters on GitHub), so the **description field** (or "Project Description" in GitLab) is essential to:
+Repository names are often limited in length (e.g., 40 characters on GitHub), so the **description field** (or "Project Description") is essential to:
 - Clarify the full meaning behind abbreviated or compact repository names
 - Improve repository discoverability via search
 - Provide immediate context without needing to open the repository

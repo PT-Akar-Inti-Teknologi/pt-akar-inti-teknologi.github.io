@@ -59,7 +59,7 @@ v<MAJOR>.<MINOR>.<PATCH>[-<LABEL>.<BUILD>]
 | Beta testing round 2       | `v2.1.0-beta.2`  | Second beta release for v2.1.0              |
 | Release candidate          | `v1.3.0-rc.1`    | First release candidate before stable       |
 
-## GitHub/GitLab Notes
+## GitHub Notes
 
 - Tags will trigger deployment pipelines based on your CI/CD rules
 - Use annotated tags (`git tag -a`) if possible for clearer history
