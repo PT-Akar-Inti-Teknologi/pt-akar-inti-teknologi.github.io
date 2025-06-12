@@ -1,3 +1,4 @@
+
 ---
 layout: default
 title: Database
@@ -13,10 +14,10 @@ nav_order: 4
 
 Consistency in database naming and design is essential to:
 
-- Simplify collaboration between developers
-- Improve query performance
-- Prevent hard-to-detect design issues
-- Simplify debugging and maintenance
+- **Simplify collaboration** between developers
+- **Improve query performance**
+- **Prevent hard-to-detect design issues**
+- **Simplify debugging and maintenance**
 
 ---
 
@@ -24,22 +25,22 @@ Consistency in database naming and design is essential to:
 
 ### Tables
 
-| Recommended Practice | Avoid | Notes |
+| **Recommended Practice** | **Avoid** | **Notes** |
 |----------------------|-------|-------|
-| Use plural names: `users`, `orders` | `user`, `tbl_user` | Avoid prefixes like `tbl_` or Hungarian notation |
+| Use **plural names**: `users`, `orders` | `user`, `tbl_user` | Avoid prefixes like `tbl_` or Hungarian notation |
 | Use `lower_snake_case`: `order_items` | `OrderItems`, `orderItems` | Keep consistent naming convention |
-| Use collective names: `employees`, `staff` | Vague singular names | Better represents table contents |
+| Use **collective names**: `employees`, `staff` | Vague singular names | Better represents table contents |
 | Use `id` for primary key and `xxx_id` for foreign keys | `uid`, `id_user` | Standard and easily understood |
 
 ### Columns
 
-| Recommended Practice | Avoid | Notes |
+| **Recommended Practice** | **Avoid** | **Notes** |
 |----------------------|-------|-------|
-| Use singular column names: `name`, `created_at` | Columns named like the table | Avoid duplication |
-| Use all lowercase | `CreatedAt`, `Created_At` | Consistency is key |
+| Use **singular column names**: `name`, `created_at` | Columns named like the table | Avoid duplication |
+| Use **all lowercase** | `CreatedAt`, `Created_At` | Consistency is key |
 | Prefix boolean columns with `is_`: `is_active` | `active`, `verified` | Makes boolean intent clear |
-| Use ENUM for static values | Numeric status like 1, 2, 3 | ENUM is clearer and more efficient |
-| Use `CHECK` constraints if applicable | Application-only validation | DB-level validation is safer |
+| Use **ENUM** for static values | Numeric status like 1, 2, 3 | ENUM is clearer and more efficient |
+| Use `CHECK` constraints if applicable | Application-only validation | **DB-level validation** is safer |
 
 ---
 
@@ -48,7 +49,7 @@ Consistency in database naming and design is essential to:
 - Add `created_at`, `updated_at`, `deleted_at` to every table using `timestamp with time zone`
 - Include `created_by`, `updated_by`, `deleted_by` to support auditing
 - Use default value (`now()`) and triggers where applicable
-- Consider using row versioning for optimistic locking
+- **Consider using row versioning** for optimistic locking
 
 ---
 
@@ -59,19 +60,19 @@ Consistency in database naming and design is essential to:
 - Use `EXPLAIN` or `EXPLAIN ANALYZE` to inspect query performance
 - Avoid `SELECT *`; explicitly list required columns
 - Be careful with subqueries and large aggregations
-- Avoid using functions in WHERE clauses if indexed
+- Avoid using functions in `WHERE` clauses if indexed
 - Use `LIMIT` for large result sets
-- Apply cache for heavy queries (at least 1 minute if possible)
+- Apply **cache for heavy queries** (at least 1 minute if possible)
 
 ### Indexing
 
 - Add indexes on columns used in `JOIN`, `WHERE`, and `ORDER BY`
-- Avoid over-indexing; it can slow down write performance
-- Use composite indexes with correct column order
+- Avoid **over-indexing**; it can slow down write performance
+- Use **composite indexes** with correct column order
 
 #### Common Index Use Cases
 
-| Scenario | Explanation | Example |
+| **Scenario** | **Explanation** | **Example** |
 |----------|-------------|---------|
 | Used in `WHERE` clause | For efficient filtering | `SELECT * FROM orders WHERE status = 'pending'` (Index on `status`) |
 | Used in `JOIN` conditions | To avoid full table scans | `JOIN users ON users.id = orders.user_id` (Index on `orders.user_id`) |
@@ -82,7 +83,7 @@ Consistency in database naming and design is essential to:
 
 #### Indexing Anti-patterns
 
-| Scenario | Explanation | Example |
+| **Scenario** | **Explanation** | **Example** |
 |----------|-------------|---------|
 | Index on low-cardinality columns | Ineffective | Boolean field like `is_active` with 99% same value |
 | Index on frequently updated fields | Adds write overhead | Index on `updated_at` or `last_accessed` |
@@ -93,91 +94,91 @@ Consistency in database naming and design is essential to:
 #### Index Tips
 
 - Use `EXPLAIN` to verify if index is used
-- Use partial indexes if only subset of rows is relevant (PostgreSQL)
-- Consider covering indexes for read-heavy queries
-- Periodically review unused or duplicate indexes
+- Use **partial indexes** if only subset of rows is relevant (PostgreSQL)
+- Consider **covering indexes** for read-heavy queries
+- **Periodically review** unused or duplicate indexes
 
 ---
 
 ## ORM Consideration
 
-- Always check the SQL generated by ORM
+- Always **check the SQL** generated by ORM
 - Use `EXPLAIN` to verify execution plan
-- Avoid eager loading unless necessary
-- Prevent N+1 problems from lazy loading in loops
-- Use parameter binding to avoid SQL injection
+- Avoid **eager loading** unless necessary
+- Prevent **N+1 problems** from lazy loading in loops
+- Use **parameter binding** to avoid SQL injection
 - Benchmark performance with associations
 
 ---
 
 ## Migration, Seeding, and Access Control
 
-- Use structured migration tools (Flyway, Liquibase, or ORM-based)
-- Ensure seed scripts are idempotent and do not truncate critical data
-- Developers should not have `DROP`, `TRUNCATE`, or `SUPER` privileges
-- Audit all DDL and DML actions in production environments
-- Separate access roles for dev, staging, and production environments
+- Use **structured migration tools** (Flyway, Liquibase, or ORM-based)
+- Ensure seed scripts are **idempotent** and do not truncate critical data
+- Developers should **not have** `DROP`, `TRUNCATE`, or `SUPER` privileges
+- **Audit all DDL and DML** actions in production environments
+- Separate access roles for **dev, staging, and production**
 
 ---
 
 ## Database Engine (MySQL)
 
-| Requirement | Recommended Engine |
+| **Requirement** | **Recommended Engine** |
 |-------------|--------------------|
 | General purpose | InnoDB |
 | Archival or historical data | Partitioned tables or alternative engines |
 
-Note: MyISAM is deprecated and should not be used in production.
+**Note**: MyISAM is deprecated and should not be used in production.
 
 ---
 
 ## Data Management & Batch Processing
 
-- Use batch processing for large `DELETE` or `INSERT` operations with `LIMIT`
-- Archive inactive data to dedicated tables
-- Consider table partitioning for large datasets (>10 million rows)
-- Avoid long-held locks that can block concurrent access
+- Use **batch processing** for large `DELETE` or `INSERT` operations with `LIMIT`
+- Archive inactive data to **dedicated tables**
+- Consider **table partitioning** for large datasets (>10 million rows)
+- Avoid **long-held locks** that can block concurrent access
 
 ---
 
 ## Monitoring & Performance Tools
 
-- Enable and monitor slow query logs
+- Enable and monitor **slow query logs**
 - Use tools like:
   - `pg_stat_statements` (PostgreSQL)
   - `performance_schema` (MySQL)
   - APM tools (New Relic, DataDog, etc.)
-- Avoid relying solely on ORM for complex queries
+- Avoid relying solely on ORM for **complex queries**
 
 ---
 
 ## Stored Procedure
 
-Stored procedure usage is generally discouraged in modern application architecture due to:
+Stored procedure usage is **generally discouraged** in modern application architecture due to:
 
-- Business logic should reside in the application layer for better testability, traceability, and portability
-- Stored procedures are harder to maintain, test, and version control
+- Business logic should reside in the **application layer** for better testability, traceability, and portability
+- Stored procedures are **harder to maintain, test, and version control**
 - SQL syntax and features vary between database vendors
 
-However, stored procedures can be used with strong justification such as:
+However, stored procedures can be used with **strong justification** such as:
 
-- Performance optimization that cannot be achieved from the application layer
-- Reusable logic across multiple apps sharing the same DB
-- Enforced access control at the database layer
+- Performance optimization that **cannot be achieved** from the application layer
+- Reusable logic across **multiple apps sharing the same DB**
+- Enforced **access control** at the database layer
 
 **Recommended Alternatives:**
-- Use lightweight SQL functions for simple calculations
-- Implement core logic in the application/service layer
+- Use **lightweight SQL functions** for simple calculations
+- Implement core logic in the **application/service layer**
 
 ---
 
 ## Race Condition & Locking Strategy (Advanced)
 
-This is an advanced topic relevant to systems handling concurrent data access and transactions.
+This is an advanced topic relevant to systems handling **concurrent data access and transactions**.
 
 ### Why It Matters
 
-A race condition occurs when two or more transactions access and modify the same data simultaneously without proper synchronization, resulting in inconsistent or lost data.
+A **race condition** occurs when two or more transactions access and modify the same data simultaneously without proper synchronization, resulting in inconsistent or lost data.
 
 Common example:
 - Two users try to check out the last available stock at the same time.
@@ -187,11 +188,9 @@ Common example:
 
 #### Pessimistic Locking
 
-- Locks the row when read
-- Other transactions must wait
-- Suitable for high-conflict, critical operations
-
-Example (PostgreSQL):
+- **Locks the row when read**
+- Other transactions must **wait**
+- Suitable for **high-conflict**, critical operations
 
 ```sql
 SELECT * FROM products WHERE id = 'p-123' FOR UPDATE;
@@ -200,10 +199,8 @@ SELECT * FROM products WHERE id = 'p-123' FOR UPDATE;
 #### Optimistic Locking
 
 - Doesn't lock immediately
-- Checks the version field during update; update fails if the version has changed
-- Ideal for low-conflict systems
-
-Example:
+- Checks the **version field** during update; update fails if the version has changed
+- Ideal for **low-conflict systems**
 
 ```sql
 -- Requires a version column
@@ -214,7 +211,7 @@ WHERE id = 'p-123' AND version = 3;
 
 ### Comparison of Pessimistic vs Optimistic Locking
 
-| Aspect | Pessimistic | Optimistic |
+| **Aspect** | **Pessimistic** | **Optimistic** |
 |--------|-------------|------------|
 | Conflict frequency | High | Low |
 | Performance | Slower (due to blocking) | Faster, may need retry |
@@ -223,7 +220,7 @@ WHERE id = 'p-123' AND version = 3;
 
 ### Recommended Use Cases
 
-| Use Case | Locking Strategy |
+| **Use Case** | **Locking Strategy** |
 |----------|------------------|
 | Buying last unit of product | Pessimistic |
 | Bank transfers | Pessimistic |
@@ -233,7 +230,7 @@ WHERE id = 'p-123' AND version = 3;
 
 ### Implementation Tips
 
-- Avoid long-running transactions
+- Avoid **long-running transactions**
 - Use `statement_timeout` or equivalent
-- Apply retry logic on optimistic failures
-- Monitor locking and blocking queries with native DB tools
+- Apply **retry logic** on optimistic failures
+- Monitor **locking and blocking queries** with native DB tools
