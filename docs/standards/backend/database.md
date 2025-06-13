@@ -11,12 +11,19 @@ nav_order: 4
 
 ## Why
 
-Consistency in database naming and design is essential to:
+Consistency in database naming and design simplifies collaboration, improves performance, and reduces debugging effort. Standards prevent hidden issues and make maintenance easier.
 
-- Simplify collaboration between developers
-- Improve query performance
-- Prevent hard-to-detect design issues
-- Simplify debugging and maintenance
+---
+
+## Database Naming Convention
+
+- Use lowercase and underscore for database names, e.g. `ait_app_db`.
+- For multi-environment:
+  - Development: `{project}_dev`, e.g. `crm_dev`
+  - Staging: `{project}_stg`, e.g. `crm_stg`
+  - Production: `{project}_prod`, e.g. `crm_prod`
+- For microservices, prefix or suffix with service name, e.g. `orders_service_prod`.
+- Avoid generic names like `test`, `db`, or `data`.
 
 ---
 
@@ -24,212 +31,146 @@ Consistency in database naming and design is essential to:
 
 ### Tables
 
-| **Recommended Practice** | **Avoid** | **Notes** |
-|----------------------|-------|-------|
-| Use **plural names**: `users`, `orders` | `user`, `tbl_user` | Avoid prefixes like `tbl_` or Hungarian notation |
-| Use `lower_snake_case`: `order_items` | `OrderItems`, `orderItems` | Keep consistent naming convention |
-| Use **collective names**: `employees`, `staff` | Vague singular names | Better represents table contents |
-| Use `id` for primary key and `xxx_id` for foreign keys | `uid`, `id_user` | Standard and easily understood |
+| Recommended Practice           | Avoid                | Notes                          |
+|-------------------------------|----------------------|--------------------------------|
+| Plural names: `users`, `orders` | `user`, `tbl_user`   | Avoid prefixes like `tbl_`     |
+| lower_snake_case: `order_items` | `OrderItems`         | Keep naming consistent         |
+| Collective names: `employees`    | Vague singular       | Clearly represents contents    |
+| Primary key as `id`, foreign as `xxx_id` | `uid`, `id_user` | Simple and consistent          |
 
 ### Columns
 
-| **Recommended Practice** | **Avoid** | **Notes** |
-|----------------------|-------|-------|
-| Use **singular column names**: `name`, `created_at` | Columns named like the table | Avoid duplication |
-| Use **all lowercase** | `CreatedAt`, `Created_At` | Consistency is key |
-| Prefix boolean columns with `is_`: `is_active` | `active`, `verified` | Makes boolean intent clear |
-| Use **ENUM** for static values | Numeric status like 1, 2, 3 | ENUM is clearer and more efficient |
-| Use `CHECK` constraints if applicable | Application-only validation | **DB-level validation** is safer |
+| Recommended Practice              | Avoid                   | Notes                   |
+|-----------------------------------|-------------------------|-------------------------|
+| Singular column: `name`, `created_at` | Duplicating table name    | Avoid redundancy        |
+| All lowercase                     | `CreatedAt`, `Created_At` | Consistency is key      |
+| Boolean with `is_`: `is_active`   | `active`, `verified`    | Boolean intent is clear |
+| ENUM for static values            | Numeric status           | Easier to maintain      |
+| DB-level `CHECK` constraints      | Only application-side    | Validation at DB safer  |
 
 ---
 
 ## Timestamp & Audit Columns
 
-- Add `created_at`, `updated_at`, `deleted_at` to every table using `timestamp with time zone`
-- Include `created_by`, `updated_by`, `deleted_by` to support auditing
-- Use default value (`now()`) and triggers where applicable
-- **Consider using row versioning** for optimistic locking
+- Add `created_at`, `updated_at`, `deleted_at` with `timestamp with time zone`.
+- Add `created_by`, `updated_by`, `deleted_by` for audit if needed.
+- Use default values (`now()`) and triggers where possible.
+- Consider `row version` (optimistic locking) for concurrency.
 
 ---
 
 ## Query Optimization Guidelines
 
-### General
-
-- Use `EXPLAIN` or `EXPLAIN ANALYZE` to inspect query performance
-- Avoid `SELECT *`; explicitly list required columns
-- Be careful with subqueries and large aggregations
-- Avoid using functions in `WHERE` clauses if indexed
-- Use `LIMIT` for large result sets
-- Apply **cache for heavy queries** (at least 1 minute if possible)
+- Use `EXPLAIN` or `EXPLAIN ANALYZE` for slow queries.
+- Avoid `SELECT *`, select only needed columns.
+- Avoid subqueries and large aggregations unless necessary.
+- Avoid using functions in `WHERE` on indexed columns.
+- Use `LIMIT` for large datasets.
+- Apply cache for heavy queries (TTL at least 1 minute when possible).
 
 ### Indexing
 
-- Add indexes on columns used in `JOIN`, `WHERE`, and `ORDER BY`
-- Avoid **over-indexing**; it can slow down write performance
-- Use **composite indexes** with correct column order
+- Add indexes for columns used in `JOIN`, `WHERE`, or `ORDER BY`.
+- Avoid too many indexes; impacts write speed and storage.
+- Composite indexes should match query order.
 
 #### Common Index Use Cases
 
-| **Scenario** | **Explanation** | **Example** |
-|----------|-------------|---------|
-| Used in `WHERE` clause | For efficient filtering | `SELECT * FROM orders WHERE status = 'pending'` (Index on `status`) |
-| Used in `JOIN` conditions | To avoid full table scans | `JOIN users ON users.id = orders.user_id` (Index on `orders.user_id`) |
-| Used in `ORDER BY` | Accelerate sorting | `ORDER BY created_at DESC` (Index on `created_at DESC`) |
-| Combination of `WHERE` and `ORDER BY` | Use composite index | `WHERE user_id = ? ORDER BY created_at DESC` (Index on `user_id, created_at DESC`) |
-| Used in `GROUP BY` or aggregates | Speeds up aggregation | `GROUP BY status` (Index on `status`) |
-| Used in `DISTINCT` queries | Improve deduplication | `SELECT DISTINCT status FROM orders` (Index on `status`) |
+| Scenario             | Example                                   |
+|----------------------|-------------------------------------------|
+| WHERE clause         | `SELECT * FROM orders WHERE status = 'pending'` (`status`) |
+| JOIN conditions      | `JOIN users ON users.id = orders.user_id` (`orders.user_id`) |
+| ORDER BY             | `ORDER BY created_at DESC` (`created_at DESC`) |
+| WHERE + ORDER BY     | `WHERE user_id = ? ORDER BY created_at DESC` (`user_id, created_at DESC`) |
+| GROUP BY/aggregates  | `GROUP BY status` (`status`)              |
+| DISTINCT queries     | `SELECT DISTINCT status FROM orders` (`status`) |
 
 #### Indexing Anti-patterns
 
-| **Scenario** | **Explanation** | **Example** |
-|----------|-------------|---------|
-| Index on low-cardinality columns | Ineffective | Boolean field like `is_active` with 99% same value |
-| Index on frequently updated fields | Adds write overhead | Index on `updated_at` or `last_accessed` |
-| Indexes on unused columns | Waste of space | Debug-only or internal fields |
-| Wrong order in composite index | Query planner cannot use | Index (`a`, `b`) for query `WHERE b = ? AND a = ?` |
-| Indexing every column | Overkill | Especially in high-write environments |
+| Scenario                | Example                                  |
+|-------------------------|------------------------------------------|
+| Low-cardinality column  | Index on boolean like `is_active`        |
+| Frequently updated      | Index on `updated_at`                    |
+| Unused columns          | Index on internal/debug fields           |
+| Wrong composite order   | Index `(a, b)` for `WHERE b=? AND a=?`  |
+| Indexing all columns    | High-write tables                        |
 
-#### Index Tips
+#### Tips
 
-- Use `EXPLAIN` to verify if index is used
-- Use **partial indexes** if only subset of rows is relevant (PostgreSQL)
-- Consider **covering indexes** for read-heavy queries
-- **Periodically review** unused or duplicate indexes
+- Use `EXPLAIN` to check index usage.
+- Partial indexes for subset of rows (PostgreSQL).
+- Covering indexes for heavy reads.
+- Review and clean up unused/duplicate indexes periodically.
 
 ---
 
-## ORM Consideration
+## ORM Considerations
 
-- Always **check the SQL** generated by ORM
-- Use `EXPLAIN` to verify execution plan
-- Avoid **eager loading** unless necessary
-- Prevent **N+1 problems** from lazy loading in loops
-- Use **parameter binding** to avoid SQL injection
-- Benchmark performance with associations
+- Always review generated SQL from ORM.
+- Use `EXPLAIN` to check real execution plan.
+- Avoid eager loading unless justified.
+- Prevent N+1 queries with proper loading strategy.
+- Use parameter binding to prevent SQL injection.
 
 ---
 
 ## Migration, Seeding, and Access Control
 
-- Use **structured migration tools** (Flyway, Liquibase, or ORM-based)
-- Ensure seed scripts are **idempotent** and do not truncate critical data
-- Developers should **not have** `DROP`, `TRUNCATE`, or `SUPER` privileges
-- **Audit all DDL and DML** actions in production environments
-- Separate access roles for **dev, staging, and production**
-
----
-
-## Database Engine (MySQL)
-
-| **Requirement** | **Recommended Engine** |
-|-------------|--------------------|
-| General purpose | InnoDB |
-| Archival or historical data | Partitioned tables or alternative engines |
-
-**Note**: MyISAM is deprecated and should not be used in production.
+- Use structured migration tools (Flyway, Liquibase, ORM-based).
+- Seed scripts must be idempotent, avoid truncating important data.
+- Developers should not have `DROP`, `TRUNCATE`, or `SUPER` privileges on production.
+- Audit all schema (DDL) and data change (DML) in production.
+- Isolate access roles for dev, staging, and prod.
 
 ---
 
 ## Data Management & Batch Processing
 
-- Use **batch processing** for large `DELETE` or `INSERT` operations with `LIMIT`
-- Archive inactive data to **dedicated tables**
-- Consider **table partitioning** for large datasets (>10 million rows)
-- Avoid **long-held locks** that can block concurrent access
+- Use batch operations for large `DELETE`/`INSERT` (with `LIMIT`).
+- Archive old/inactive data to separate tables.
+- Partition large tables (>10 million rows).
+- Avoid long-held locks.
 
 ---
 
 ## Monitoring & Performance Tools
 
-- Enable and monitor **slow query logs**
-- Use tools like:
-  - `pg_stat_statements` (PostgreSQL)
-  - `performance_schema` (MySQL)
-  - APM tools (New Relic, DataDog, etc.)
-- Avoid relying solely on ORM for **complex queries**
+- Enable and monitor slow query logs.
+- Use tools: `pg_stat_statements` (PostgreSQL), `performance_schema` (MySQL), or APM.
+- For complex queries, prefer raw SQL over ORM when needed.
 
 ---
 
 ## Stored Procedure
 
-Stored procedure usage is **generally discouraged** in modern application architecture due to:
+Stored procedures are discouraged unless:
+- Performance cannot be achieved in application layer.
+- Logic is reused by multiple consumers of the same DB.
+- Strict access control required at database level.
 
-- Business logic should reside in the **application layer** for better testability, traceability, and portability
-- Stored procedures are **harder to maintain, test, and version control**
-- SQL syntax and features vary between database vendors
-
-However, stored procedures can be used with **strong justification** such as:
-
-- Performance optimization that **cannot be achieved** from the application layer
-- Reusable logic across **multiple apps sharing the same DB**
-- Enforced **access control** at the database layer
-
-**Recommended Alternatives:**
-- Use **lightweight SQL functions** for simple calculations
-- Implement core logic in the **application/service layer**
+Prefer lightweight SQL functions or keep core logic in application/services.
 
 ---
 
-## Race Condition & Locking Strategy (Advanced)
-
-This is an advanced topic relevant to systems handling **concurrent data access and transactions**.
+## Race Condition & Locking Strategy
 
 ### Why It Matters
 
-A **race condition** occurs when two or more transactions access and modify the same data simultaneously without proper synchronization, resulting in inconsistent or lost data.
+Race conditions can cause data inconsistency if concurrent changes are not managed. Use locking only when needed, and choose the right strategy for the scenario.
 
-Common example:
-- Two users try to check out the last available stock at the same time.
-- Two admins update the same user record concurrently.
+### Locking Types
 
-### Types of Locking
+- Pessimistic: Locks row immediately (`SELECT ... FOR UPDATE`)
+- Optimistic: Uses version checking (update only if version unchanged)
 
-#### Pessimistic Locking
+| Use Case                  | Locking Strategy   |
+|---------------------------|-------------------|
+| Stock checkout, banking   | Pessimistic       |
+| Profile update, reports   | Optimistic        |
 
-- **Locks the row when read**
-- Other transactions must **wait**
-- Suitable for **high-conflict**, critical operations
+Tips:
+- Avoid long transactions  
+- Use timeout and retry logic  
+- Monitor locking with DB tools
 
-```sql
-SELECT * FROM products WHERE id = 'p-123' FOR UPDATE;
-```
-
-#### Optimistic Locking
-
-- Doesn't lock immediately
-- Checks the **version field** during update; update fails if the version has changed
-- Ideal for **low-conflict systems**
-
-```sql
--- Requires a version column
-UPDATE products
-SET stock = stock - 1, version = version + 1
-WHERE id = 'p-123' AND version = 3;
-```
-
-### Comparison of Pessimistic vs Optimistic Locking
-
-| **Aspect** | **Pessimistic** | **Optimistic** |
-|--------|-------------|------------|
-| Conflict frequency | High | Low |
-| Performance | Slower (due to blocking) | Faster, may need retry |
-| Deadlock Risk | Possible | None |
-| Best for | Stock, banking | Profile updates, background reports |
-
-### Recommended Use Cases
-
-| **Use Case** | **Locking Strategy** |
-|----------|------------------|
-| Buying last unit of product | Pessimistic |
-| Bank transfers | Pessimistic |
-| Updating user profile | Optimistic |
-| Background reporting | Optimistic |
-| Limited quota checkout | Pessimistic |
-
-### Implementation Tips
-
-- Avoid **long-running transactions**
-- Use `statement_timeout` or equivalent
-- Apply **retry logic** on optimistic failures
-- Monitor **locking and blocking queries** with native DB tools
+---
