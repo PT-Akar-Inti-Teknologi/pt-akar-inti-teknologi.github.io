@@ -9,6 +9,10 @@ nav_order: 1
 
 # Code Writing Standards
 
+## Why
+
+Clean, consistent, and well-structured code is essential for maintainability, scalability, and team collaboration. Clear coding standards ensure all developers can easily understand, extend, and debug the codebase, reduce technical debt, and speed up onboarding for new team members. Standardized practices also help prevent common errors and make code reviews more efficient.
+
 ## 1. Clean Code Principles
 
 ### 1.1. Use Descriptive and Consistent Naming

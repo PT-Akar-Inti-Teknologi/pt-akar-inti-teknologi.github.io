@@ -1,13 +1,17 @@
 ---
 layout: default
 title: Code Security
-permalink: /standards/code/code-quality
+permalink: /standards/code/code-security
 parent: Coding Standards
 grand_parent: Standards
 nav_order: 2
 ---
 
 # Coding Security Standard
+
+## Why
+
+Secure coding practices are critical to protect systems, user data, and business assets from vulnerabilities and attacks. By enforcing security standards at the code level, teams can prevent common exploits, minimize risk, and comply with industry and regulatory requirements. Proactive security measures in development help avoid costly breaches and reputation damage.
 
 This standard outlines the minimum secure coding practices that must be applied in all projects. The goal is to reduce common vulnerabilities and ensure code is robust, safe, and auditable.
 
