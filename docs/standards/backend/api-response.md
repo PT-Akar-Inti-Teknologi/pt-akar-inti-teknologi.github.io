@@ -70,6 +70,7 @@ All API responses must follow the structure below, regardless of success or erro
 | 401       | Unauthorized                        |
 | 403       | Forbidden                           |
 | 404       | Not found                           |
+| 406       | Not acceptable                      |
 | 422       | Semantic error                      |
 | 500       | Internal server error               |
 

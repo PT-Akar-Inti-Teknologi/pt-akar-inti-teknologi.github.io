@@ -77,3 +77,37 @@ Every pull request must be reviewed with reference to the following points:
 - Avoid excessive nitpicking; focus on code quality, security, and business logic.
 
 ---
+
+## Checklist Code Review
+
+Gunakan checklist berikut sebelum menyetujui pull request. Reviewer diharapkan meninjau setiap poin untuk memastikan perubahan kode memenuhi standar kualitas, keamanan, dan maintainability proyek.
+
+- [ ] **Sesuai standar penamaan dan struktur kode**  
+  Kode sudah mengikuti konvensi penamaan, struktur folder, dan arsitektur proyek yang berlaku.
+
+- [ ] **Logika dan requirement sudah benar**  
+  Kode sudah mengimplementasikan logika dan requirement/ticket dengan benar, tidak ada bug logika atau kasus yang terlewat.
+
+- [ ] **Tidak ada kode duplikat, mati, atau tidak terpakai**  
+  Tidak ditemukan kode duplikat, kode yang di-comment tanpa alasan jelas, atau fungsi/kelas yang tidak digunakan.
+
+- [ ] **Mudah dibaca dan terdokumentasi**  
+  Kode mudah dibaca dan dipahami. Nama variabel, fungsi, dan kelas sudah deskriptif. Logika bisnis yang kompleks diberi komentar/dokumentasi tambahan.
+
+- [ ] **Memenuhi best practice keamanan**  
+  Tidak ada credential/token/secret yang di-hardcode. Semua input sudah tervalidasi dan disanitasi. Tidak ada potensi injection atau kebocoran data sensitif.
+
+- [ ] **Logika efisien dan optimal**  
+  Algoritma dan query sudah efisien dan tidak menimbulkan masalah performa, terutama di jalur kritis.
+
+- [ ] **Cakupan pengujian (test coverage)**  
+  Unit/integration test sudah dibuat dan relevan, mencakup kasus positif dan negatif jika diperlukan.
+
+- [ ] **Tidak ada breaking change tanpa komunikasi**  
+  Jika ada breaking change, sudah didokumentasikan dan dikomunikasikan ke stakeholder, QA, atau developer lain yang terkait.
+
+- [ ] **Sudah lolos linting dan formatting**  
+  Kode sudah bebas error/warning dari linter, formatter, dan pipeline CI.
+
+- [ ] **Tidak ada data sensitif pada log atau komentar**  
+  Tidak ada data sensitif pada log aplikasi, komentar, maupun dokumentasi kode.
