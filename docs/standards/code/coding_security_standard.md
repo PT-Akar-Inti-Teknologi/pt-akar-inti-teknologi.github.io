@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Code Security Standards
+title: Code Security
 permalink: /standards/code/code-quality
 parent: Coding Standards
 grand_parent: Standards

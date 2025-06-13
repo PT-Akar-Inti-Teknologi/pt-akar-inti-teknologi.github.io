@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Code Writing Standards
+title: Code Writing
 permalink: /standards/code/code-quality
 parent: Coding Standards
 grand_parent: Standards
