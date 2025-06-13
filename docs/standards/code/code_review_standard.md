@@ -21,7 +21,7 @@ Every pull request must be reviewed with reference to the following points:
 
 1. **Code Standards and Structure**
    - Ensure code follows the established style guide and architecture standards.
-   - Refer to internal documentation (e.g., Backend | AIT IT Knowledge Base).
+   - Refer to internal documentation e.g. AIT IT Knowledge Base.
 
 2. **Potential Bugs and Security Vulnerabilities**
    - Inspect for possible logical errors, security loopholes, or anti-patterns.
