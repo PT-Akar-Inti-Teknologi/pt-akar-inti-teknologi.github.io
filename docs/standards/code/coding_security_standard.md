@@ -259,12 +259,3 @@ Best Practice:
 Schedule periodic penetration testing and review findings promptly.
 
 ---
-
-## References
-
-- OWASP Top Ten
-- Secure Coding Practices Checklist (OWASP)
-- Node.js Security Handbook
-- Google Web Security Guidelines
-
----
