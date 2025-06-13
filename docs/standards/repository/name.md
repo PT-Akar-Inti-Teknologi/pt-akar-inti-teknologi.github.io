@@ -60,10 +60,10 @@ Use this format:
 ## Anti-Patterns (Do NOT use)
 
 ```
-⛔ AIT-JIRA
-⛔ JIRA_AIT
-⛔ AitJiraWeb
-⛔ crmWebsite
+- AIT-JIRA
+- JIRA_AIT
+- AitJiraWeb
+- crmWebsite
 ```
 
 These violate casing, structure, or naming consistency.
