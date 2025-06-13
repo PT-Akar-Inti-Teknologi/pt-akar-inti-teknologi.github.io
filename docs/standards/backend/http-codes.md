@@ -58,7 +58,7 @@ Used when:
 - Authentication is valid, but the user does not have permission to perform the requested operation.
 - Common for access control failures (e.g., valid token but no role or permission).
 
-Do not use 403 for expired or missing tokens—use 401 instead.
+Do not use 403 for expired or missing tokens-use 401 instead.
 
 ---
 

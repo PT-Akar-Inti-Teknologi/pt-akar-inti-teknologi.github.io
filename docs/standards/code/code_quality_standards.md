@@ -13,6 +13,8 @@ nav_order: 1
 
 Clean, consistent, and well-structured code is essential for maintainability, scalability, and team collaboration. Clear coding standards ensure all developers can easily understand, extend, and debug the codebase, reduce technical debt, and speed up onboarding for new team members. Standardized practices also help prevent common errors and make code reviews more efficient.
 
+---
+
 ## 1. Clean Code Principles
 
 ### 1.1. Use Descriptive and Consistent Naming
@@ -20,12 +22,12 @@ Clean, consistent, and well-structured code is essential for maintainability, sc
 Use clear and self-explanatory names for functions, variables, and classes. Avoid generic or ambiguous names such as `getData` or `process`. Always use names that describe the purpose and responsibility of the item.
 
 **Correct Examples:**
-- `getCustomerById(customerId)` — The function explicitly states it retrieves a customer using an ID.
-- `calculateMonthlyReport(transactions)` — Indicates the function calculates a monthly report.
+- `getCustomerById(customerId)` - The function explicitly states it retrieves a customer using an ID.
+- `calculateMonthlyReport(transactions)` - Indicates the function calculates a monthly report.
 
 **Incorrect Examples:**
-- `getData()` — The function does not specify what data is being retrieved.
-- `process()` — Unclear what is being processed.
+- `getData()` - The function does not specify what data is being retrieved.
+- `process()` - Unclear what is being processed.
 
 Best Practice:  
 Follow language or framework naming conventions (CamelCase for JavaScript/Java, snake_case for Python, PascalCase for Classes).
@@ -37,12 +39,12 @@ Follow language or framework naming conventions (CamelCase for JavaScript/Java, 
 Each function or method should have one clear responsibility. Do not create functions that perform multiple unrelated actions.
 
 **Correct Examples:**
-- `validateUser(user)` — Only validates the user data.
-- `calculateTransaction(items)` — Only calculates the total transaction.
+- `validateUser(user)` - Only validates the user data.
+- `calculateTransaction(items)` - Only calculates the total transaction.
 
 **Incorrect Examples:**
-- `validateAndSaveUser(user)` — Performs both validation and database operations.
-- `calculateAndExport(data)` — Calculates and exports in a single function.
+- `validateAndSaveUser(user)` - Performs both validation and database operations.
+- `calculateAndExport(data)` - Calculates and exports in a single function.
 
 Best Practice:  
 Break down large or multi-purpose functions into smaller, focused units. This makes testing, maintenance, and debugging easier.

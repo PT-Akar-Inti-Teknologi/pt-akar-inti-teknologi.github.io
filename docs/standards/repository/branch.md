@@ -33,7 +33,7 @@ Other permanent branches may be added (e.g., for specific environments or platfo
 
 - Keep names short: `ubuntu20`, not `for-server-with-ubuntu-version-20`
 - Use dashes `-` for separators
-- Ensure it's truly permanent—otherwise, use a temporary branch instead
+- Ensure it's truly permanent-otherwise, use a temporary branch instead
 
 ---
 
