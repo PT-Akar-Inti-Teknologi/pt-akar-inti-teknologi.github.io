@@ -80,34 +80,35 @@ Every pull request must be reviewed with reference to the following points:
 
 ## Checklist Code Review
 
-Gunakan checklist berikut sebelum menyetujui pull request. Reviewer diharapkan meninjau setiap poin untuk memastikan perubahan kode memenuhi standar kualitas, keamanan, dan maintainability proyek.
+## Checklist Review Pull Request
+
+Gunakan checklist berikut sebelum menyetujui pull request.  
+Checklist ini dirancang agar reviewer bisa tetap melakukan review meskipun tidak 100% menguasai techstack atau domain dari PR yang diperiksa. Fokuskan pada aspek fundamental yang selalu *blocking*, dan diskusikan lebih lanjut dengan author jika ada keraguan pada detail tertentu.
 
 - [ ] **Sesuai standar penamaan dan struktur kode**  
-  Kode sudah mengikuti konvensi penamaan, struktur folder, dan arsitektur proyek yang berlaku.
+  Kode mengikuti konvensi penamaan, struktur folder, dan arsitektur proyek.
 
-- [ ] **Logika dan requirement sudah benar**  
-  Kode sudah mengimplementasikan logika dan requirement/ticket dengan benar, tidak ada bug logika atau kasus yang terlewat.
+- [ ] **Tidak ada credential/token/secret di-hardcode**  
+  Tidak ditemukan credential, token, atau secret yang disimpan langsung di kode (harus lewat env/config).
+
+- [ ] **Tidak ada data sensitif pada log atau komentar**  
+  Tidak ada data sensitif (password, token, PII) di log aplikasi, komentar, atau dokumentasi.
 
 - [ ] **Tidak ada kode duplikat, mati, atau tidak terpakai**  
   Tidak ditemukan kode duplikat, kode yang di-comment tanpa alasan jelas, atau fungsi/kelas yang tidak digunakan.
 
-- [ ] **Mudah dibaca dan terdokumentasi**  
-  Kode mudah dibaca dan dipahami. Nama variabel, fungsi, dan kelas sudah deskriptif. Logika bisnis yang kompleks diberi komentar/dokumentasi tambahan.
-
-- [ ] **Memenuhi best practice keamanan**  
-  Tidak ada credential/token/secret yang di-hardcode. Semua input sudah tervalidasi dan disanitasi. Tidak ada potensi injection atau kebocoran data sensitif.
-
-- [ ] **Logika efisien dan optimal**  
-  Algoritma dan query sudah efisien dan tidak menimbulkan masalah performa, terutama di jalur kritis.
-
-- [ ] **Cakupan pengujian (test coverage)**  
-  Unit/integration test sudah dibuat dan relevan, mencakup kasus positif dan negatif jika diperlukan.
-
 - [ ] **Tidak ada breaking change tanpa komunikasi**  
-  Jika ada breaking change, sudah didokumentasikan dan dikomunikasikan ke stakeholder, QA, atau developer lain yang terkait.
+  Perubahan besar/breaking change sudah didokumentasikan dan dikomunikasikan ke stakeholder, QA, atau developer lain terkait.
 
 - [ ] **Sudah lolos linting dan formatting**  
   Kode sudah bebas error/warning dari linter, formatter, dan pipeline CI.
 
-- [ ] **Tidak ada data sensitif pada log atau komentar**  
-  Tidak ada data sensitif pada log aplikasi, komentar, maupun dokumentasi kode.
+- [ ] **Kode mudah dibaca, atau bagian membingungkan sudah ada penjelasan/komentar**  
+  Jika reviewer tidak paham bagian tertentu, sudah ada komentar atau diskusi dengan author.
+
+- [ ] **Sudah ada test/unit test, atau penjelasan kenapa tidak perlu**  
+  Jika test tidak relevan, reviewer bisa tanya author (boleh checklist jika sudah yakin).
+
+> **Catatan:**  
+> Jika ada item yang diragukan (misal: logic, test coverage, performa), reviewer *wajib* tag author atau engineer/domain expert untuk diskusi lebih lanjut sebelum approve.
+
